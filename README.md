@@ -1,4 +1,4 @@
-[ ![Codeship Status for arpinum/arpinum-graine-webapp](https://www.codeship.io/projects/19b0b830-a45b-0131-4116-52e8d0ff4a23/status?branch=master)](https://www.codeship.io/projects/18666)
+[ ![Codeship Status for arpinum/alexandria-webapp](https://www.codeship.io/projects/2acb3550-a5fd-0131-1295-266adb4f6289/status)
 
 # Arpinum Graine - Webapp
 
