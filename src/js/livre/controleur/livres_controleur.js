@@ -1,0 +1,20 @@
+(function (angular) {
+    'use strict';
+
+    angular.module('livre')
+        .controller('LivresControleur', ['$scope', 'Livres', function ($scope, Livres) {
+            $scope.livres = Livres.get();
+
+            $scope.chargeLaSuite = function() {
+              $scope.livres.push({_id:"test", titre:"toto", nombre:3});
+            };
+
+            $scope.supprimerEntree = function () {
+              $scope.livres.pop();
+            };
+
+            $scope.$watch("livres", function () {
+               console.log("coucou");
+            });
+        }]);
+})(angular);

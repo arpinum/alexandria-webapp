@@ -1,0 +1,14 @@
+extends include/layout
+block content
+    header
+        p.lead= t('app.home.pitch')
+    hr
+    div(ng-app='app')
+        .div(ng-controller="LivresControleur")
+            ul
+                li(ng-repeat="livre in livres") {{livre._id}}:{{livre.titre}} ({{livre.nombre}})
+            button(ng-click="chargeLaSuite()") Charger la suite
+            button(ng-click="supprimerEntree()") Supprimer pour le fun
+
+block js
+    script(src='/genere/js/app_pkg.js')

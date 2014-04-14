@@ -1,0 +1,16 @@
+{
+    "locale": "English",
+    "app": {
+        "angularLocale" : "anglais",
+
+        "title": {
+            "global": "Votre application"
+        },
+        "home": {
+          "pitch": "Your first app"
+        },
+        "menu": {
+          "home":"Home"
+        }
+    }
+}

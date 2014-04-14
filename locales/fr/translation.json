@@ -1,0 +1,15 @@
+{
+    "locale": "Français",
+    "app": {
+        "angularLocale" : "francais",
+        "title": {
+            "global": "Votre application"
+        },
+        "home": {
+          "pitch": "Votre première application"
+        },
+        "menu": {
+          "home":"Accueil"
+        }
+    }
+}
