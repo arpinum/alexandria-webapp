@@ -1,6 +1,6 @@
 (function (angular) {
     'use strict';
-    angular.module("app", ['ngResource', 'configuration', 'livre'])
+    angular.module("app", ['ngResource', 'configuration', 'livre', 'exemplaire', 'commun'])
         .config(['$httpProvider', function ($httpProvider) {
             $httpProvider.interceptors.push('IntercepteurConfiguration');
         }])

@@ -24,9 +24,15 @@ describe("LivresControleur", function () {
 
     it("demandes les livres à l'api", function () {
         expect(livres.get).toHaveBeenCalled();
-    })
+    });
 
     it("passes les livres à la vue", function () {
         expect($scope.livres).toEqual(collectionDeLivres);
+    });
+
+    it("après ajout d'un exemplaire, la vue se rafraichit", function(){
+        $scope.$emit("PropagationExemplaireAjoute");
+
+        expect(livres.get.callCount).toBe(2);
     });
 });

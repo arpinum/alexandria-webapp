@@ -13,8 +13,8 @@
               $scope.livres.pop();
             };
 
-            $scope.$watch("livres", function () {
-               console.log("coucou");
+            $scope.$on("PropagationExemplaireAjoute", function() {
+                $scope.livres = Livres.get();
             });
         }]);
 })(angular);

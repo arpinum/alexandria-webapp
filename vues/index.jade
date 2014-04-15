@@ -3,8 +3,15 @@ block content
     header
         p.lead= t('app.home.pitch')
     hr
-    div(ng-app='app')
-        .div(ng-controller="LivresControleur")
+    div(ng-app='app', ng-controller="OrchestrateurControleur")
+
+        form(ng-controller="ExemplairesControleur")
+            fieldset Ajouter un exemplaire :
+                input(type="text", name="isbn", placeholder="isbn", ng-model="exemplaire.isbn")
+                input(type="email", name="email", placeholder="email", ng-model="exemplaire.email")
+            button(ng-click="ajouterExemplaire()" type="button") Ajouter
+
+        div(ng-controller="LivresControleur")
             ul
                 li(ng-repeat="livre in livres") {{livre._id}}:{{livre.titre}} ({{livre.nombre}})
             button(ng-click="chargeLaSuite()") Charger la suite
