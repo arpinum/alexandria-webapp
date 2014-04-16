@@ -7,7 +7,12 @@ block content
 
         form(ng-controller="ExemplairesControleur")
             fieldset Ajouter un exemplaire :
-                input(type="text", name="isbn", placeholder="isbn", ng-model="exemplaire.isbn")
+                input(type="text", ng-model="titre", placeholder="Rechercher par titre")
+                button(type="button", ng-click="recherche()") Rechercher
+                ul
+                    li(ng-repeat="livre in livres")
+                        input(type="radio", name="isbn",ng-model="exemplaire.isbn", ng-value="livre.isbn")
+                        | {{livre.titre}}
                 input(type="email", name="email", placeholder="email", ng-model="exemplaire.email")
             button(ng-click="ajouterExemplaire()" type="button") Ajouter
 

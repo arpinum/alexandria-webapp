@@ -3,9 +3,17 @@
 
     angular.module('exemplaire')
         .controller('ExemplairesControleur',
-        ['$scope', 'Exemplaires', function ($scope, Exemplaires) {
-            $scope.ajouterExemplaire = function() {
-                Exemplaires.put($scope.exemplaire, null, function() {
+        ['$scope', 'Exemplaires', 'Recherche', function ($scope, Exemplaires, Recherche) {
+
+            $scope.exemplaire = {};
+            $scope.recherche = function () {
+                Recherche.recherche({q:$scope.titre}, function (data) {
+                    $scope.livres = data.livres;
+                });
+            };
+
+            $scope.ajouterExemplaire = function () {
+                Exemplaires.put($scope.exemplaire, null, function () {
                     $scope.$emit("ExemplaireAjoute");
                 });
             };

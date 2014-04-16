@@ -1,7 +1,7 @@
 describe("ExemplaireControleur", function () {
     'use strict';
 
-    var $scope, controller, exemplaires;
+    var $scope, controller, exemplaires, recherche;
 
     beforeEach(function () {
         angular.mock.module('exemplaire');
@@ -10,10 +10,12 @@ describe("ExemplaireControleur", function () {
     beforeEach(inject(function ($rootScope, $controller) {
         $scope = $rootScope.$new();
         exemplaires = jasmine.createSpyObj("ressource", ['put']);
+        recherche = jasmine.createSpyObj("recherche", ['recherche']);
 
         controller = $controller('ExemplairesControleur', {
             $scope: $scope,
-            Exemplaires: exemplaires
+            Exemplaires: exemplaires,
+            Recherche:recherche
         });
     }));
 
@@ -44,6 +46,21 @@ describe("ExemplaireControleur", function () {
         $scope.ajouterExemplaire();
 
         expect(emis).toBeTruthy();
+    });
+
+    it("doit pouvoir faire une recherche", function () {
+        var queryDonné,
+            livres = [];
+        recherche.recherche.andCallFake(function(query, callback) {
+            queryDonné = query;
+            callback({livres:livres});
+        });
+        $scope.titre = "test";
+
+        $scope.recherche();
+
+        expect(queryDonné).toEqual({q:"test"});
+        expect($scope.livres).toBe(livres);
     });
 
 });
