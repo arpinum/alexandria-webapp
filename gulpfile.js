@@ -14,7 +14,7 @@ require('jshint-stylish');
 var paths = {
     js: ['./src/js/**/*.js'],
     less: './src/less/*.less',
-    testJs : [
+    testJs: [
         'public/bower_components/underscore/underscore.js',
         'public/bower_components/angular/angular.js',
         'public/bower_components/angular-resource/angular-resource.js',
@@ -48,17 +48,18 @@ gulp.task('server', function () {
         .pipe(exec('node server.js'));
 });
 
-gulp.task('test', function() {
-   gulp.src(_.union(paths.testJs, paths.js))
-       .pipe(karma({
-           configFile: 'karma.conf.js',
-           action: 'watch'
-       }));
+gulp.task('test', function () {
+    gulp.src(_.union(paths.testJs, paths.js))
+        .pipe(karma({
+            configFile: 'karma.conf.js',
+            action: 'run'
+        })).on('error', function(err) {
+        });
 });
 
 gulp.task('watch', function () {
     var server = livereload();
-    gulp.watch(paths.js, ['js']);
+    gulp.watch(_.union(paths.js, paths.testJs), ['js', 'test']);
     gulp.watch(paths.less, ['less']);
     gulp.watch('./public/genere/css/**/*.css').on('change', reload);
     gulp.watch('vues/**/*.jade').on('change', reload);
@@ -69,6 +70,6 @@ gulp.task('watch', function () {
 
 gulp.task('build', ['less', 'js']);
 
-gulp.task('default', ['build','server', 'test', 'watch']);
+gulp.task('default', ['build', 'server', 'test', 'watch']);
 
 gulp.task('heroku:production', ['build']);
