@@ -25,7 +25,7 @@ app.configure('staging', function () {
 });
 
 app.configure('production', function () {
-    app.locals.urlApi = 'http://votreapi.fr';
+    app.locals.urlApi = 'http://alexandria-api.herokuapp.com';
 });
 
 app.configure(function () {
