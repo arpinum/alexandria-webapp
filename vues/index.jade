@@ -3,24 +3,34 @@ block content
     header
         p.lead= t('app.home.pitch')
     hr
-    div(ng-app='app', ng-controller="OrchestrateurControleur")
+    div.container-fluid(ng-app='app', ng-controller="OrchestrateurControleur")
+        .row
+            .col-md-6
+                .panel.panel-default
+                    .panel-heading
+                        | Ajouter un exemplaire
+                    .panel-body
+                        form(ng-controller="ExemplairesControleur", role="form")
+                            .form-group
+                                .input-group
+                                    input.form-control(type="text", ng-model="titre", placeholder="Rechercher par titre")
+                                    span.input-group-btn
+                                        button.btn.btn-default(type="button", ng-click="recherche()") Rechercher
+                                ul.list-group
+                                    li.list-group-item(ng-repeat="livre in livres")
+                                        input(type="radio", name="isbn",ng-model="exemplaire.isbn", ng-value="livre.isbn")
+                                        | {{livre.titre}}
 
-        form(ng-controller="ExemplairesControleur")
-            fieldset Ajouter un exemplaire :
-                input(type="text", ng-model="titre", placeholder="Rechercher par titre")
-                button(type="button", ng-click="recherche()") Rechercher
-                ul
-                    li(ng-repeat="livre in livres")
-                        input(type="radio", name="isbn",ng-model="exemplaire.isbn", ng-value="livre.isbn")
-                        | {{livre.titre}}
-                input(type="email", name="email", placeholder="email", ng-model="exemplaire.email")
-            button(ng-click="ajouterExemplaire()" type="button") Ajouter
+                                label(for="email") Email
+                                input#email.form-control(type="email", name="email", placeholder="Entrez votre email", ng-model="exemplaire.email")
+                            button.btn.btn-info(ng-click="ajouterExemplaire()" type="button") Ajouter
 
-        div(ng-controller="LivresControleur")
-            ul
-                li(ng-repeat="livre in livres") {{livre._id}}:{{livre.titre}} ({{livre.nombre}})
-            button(ng-click="chargeLaSuite()") Charger la suite
-            button(ng-click="supprimerEntree()") Supprimer pour le fun
+            .col-md-6
+                .panel.panel-default
+                    .panel-heading
+                        | Livres déjà disponibles
+                    ul.list-group(ng-controller="LivresControleur")
+                        li.list-group-item(ng-repeat="livre in livres") {{livre._id}}:{{livre.titre}} ({{livre.nombre}})
 
 block js
     script(src='/genere/js/app_pkg.js')

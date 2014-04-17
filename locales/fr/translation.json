@@ -3,10 +3,10 @@
     "app": {
         "angularLocale" : "francais",
         "title": {
-            "global": "Votre application"
+            "global": "Alexandria"
         },
         "home": {
-          "pitch": "Votre première application"
+          "pitch": "Alexandria, bibliothèque collaborative"
         },
         "menu": {
           "home":"Accueil"

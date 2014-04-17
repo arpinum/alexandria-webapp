@@ -7,7 +7,7 @@
 
             $scope.exemplaire = {};
             $scope.recherche = function () {
-                Recherche.recherche({q:$scope.titre}, function (data) {
+                Recherche.recherche({q:encodeURIComponent($scope.titre)}, function (data) {
                     $scope.livres = data.livres;
                 });
             };

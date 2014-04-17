@@ -4,10 +4,10 @@
         "angularLocale" : "anglais",
 
         "title": {
-            "global": "Votre application"
+            "global": "Alexandria"
         },
         "home": {
-          "pitch": "Your first app"
+          "pitch": "Alexandria, shared library"
         },
         "menu": {
           "home":"Home"

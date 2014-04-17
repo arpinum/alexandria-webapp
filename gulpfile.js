@@ -26,7 +26,7 @@ var paths = {
 
 gulp.task('less', function () {
     gulp.src(paths.less)
-        .pipe(changed('./public/genere/css'))
+        //.pipe(changed('./public/genere/css'))
         .pipe(less({
             paths: [path.join(__dirname, 'less', 'includes')]
         }))
