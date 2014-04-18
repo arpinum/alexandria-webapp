@@ -20,7 +20,7 @@
 
             $scope.selectionne = function (isbn) {
                 $scope.exemplaire.isbn = isbn;
-            }
+            };
         }]);
 })(angular);
 
