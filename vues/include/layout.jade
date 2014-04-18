@@ -25,7 +25,7 @@ html
         link(href='/bower_components/bootstrap/dist/css/bootstrap.css', rel='stylesheet', type='text/css')
         link(href="/genere/css/style.css", rel='stylesheet', type='text/css')
 
-    body(class=classe)
+    body(class=classe ,ng-app="app", ng-controller="OrchestrateurControleur")
         nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
             .navbar-header
                 a.navbar-brand(href="/")
@@ -38,8 +38,10 @@ html
 
             .collapse.navbar-collapse#navbar-main
                 ul.nav.navbar-nav
-                    li(class=classe==='accueil'?'active':'')
-                        a(href="/")= t("app.menu.home")
+                    li(ng-class="{active:$location.path() == '/index'}")
+                        a(href="#/index")= t("app.menu.home")
+                    li(ng-class="{active:$location.path() == '/ajout-exemplaire'}")
+                        a(href="#/ajout-exemplaire") Ajouter un exemplaire
                 ul.nav.navbar-nav.navbar-right
                     li.dropdown.pull-right
                         a.dropdown-toggle(href="", data-toggle="dropdown")
