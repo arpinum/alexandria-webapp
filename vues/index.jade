@@ -6,24 +6,25 @@ block content
     div.container-fluid(ng-app='app', ng-controller="OrchestrateurControleur")
         .row
             .col-md-6
-                .panel.panel-default
+                .panel.panel-default(ng-controller="ExemplairesControleur")
                     .panel-heading
                         | Ajouter un exemplaire
                     .panel-body
-                        form(ng-controller="ExemplairesControleur", role="form")
+                        form( role="form")
                             .form-group
+                                label(for="email") Email
+                                input#email.form-control(type="email", name="email", placeholder="Entrez votre email", ng-model="exemplaire.email")
+                                label ISBN
                                 .input-group
                                     input.form-control(type="text", ng-model="titre", placeholder="Rechercher par titre")
                                     span.input-group-btn
                                         button.btn.btn-default(type="button", ng-click="recherche()") Rechercher
-                                ul.list-group
-                                    li.list-group-item(ng-repeat="livre in livres")
-                                        input(type="radio", name="isbn",ng-model="exemplaire.isbn", ng-value="livre.isbn")
-                                        | {{livre.titre}}
-
-                                label(for="email") Email
-                                input#email.form-control(type="email", name="email", placeholder="Entrez votre email", ng-model="exemplaire.email")
-                            button.btn.btn-info(ng-click="ajouterExemplaire()" type="button") Ajouter
+                    .list-group
+                        a.list-group-item(ng-repeat="livre in livres", href="", ng-href="", ng-click="selectionne(livre.isbn)", ng-class="{active:exemplaire.isbn == livre.isbn}")
+                            img(src="{{livre.image}}")
+                            | {{livre.titre}}
+                    .panel-body
+                        button.btn.btn-info(ng-click="ajouterExemplaire()" type="button") Ajouter
 
             .col-md-6
                 .panel.panel-default
