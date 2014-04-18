@@ -20,9 +20,7 @@ block content
                                     span.input-group-btn
                                         button.btn.btn-default(type="button", ng-click="recherche()") Rechercher
                     .list-group
-                        a.list-group-item(ng-repeat="livre in livres", href="", ng-href="", ng-click="selectionne(livre.isbn)", ng-class="{active:exemplaire.isbn == livre.isbn}")
-                            img(src="{{livre.image}}")
-                            | {{livre.titre}}
+                        axlivre(ng-repeat="livre in livres", livre="livre", sur-selection="selectionne(isbn)")
                     .panel-body
                         button.btn.btn-info(ng-click="ajouterExemplaire()" type="button") Ajouter
 

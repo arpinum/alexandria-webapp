@@ -4,7 +4,6 @@
     angular.module('exemplaire')
         .controller('ExemplairesControleur',
         ['$scope', 'Exemplaires', 'Recherche', function ($scope, Exemplaires, Recherche) {
-
             $scope.exemplaire = {};
             $scope.recherche = function () {
                 Recherche.recherche({q:encodeURIComponent($scope.titre)}, function (data) {
