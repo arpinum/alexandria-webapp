@@ -1,38 +1,12 @@
 extends include/layout
 block content
+
     header
         p.lead= t('app.home.pitch')
     hr
-    div.container-fluid(ng-app='app', ng-controller="OrchestrateurControleur")
-        .row
-            .col-md-6
-                .panel.panel-default(ng-controller="ExemplairesControleur")
-                    .panel-heading
-                        | Ajouter un exemplaire
-                    .panel-body
-                        form( role="form")
-                            .form-group
-                                label(for="email") Email
-                                input#email.form-control(type="email", name="email", placeholder="Entrez votre email", ng-model="exemplaire.email")
-                                label ISBN
-                                .input-group
-                                    input.form-control(type="text", ng-model="titre", placeholder="Rechercher par titre")
-                                    span.input-group-btn
-                                        button.btn.btn-default(type="button", ng-click="recherche()") Rechercher
-                    .list-group
-                        axlivre(ng-repeat="livre in livres", livre="livre", sur-selection="selectionne(isbn)")
-                    .panel-body
-                        button.btn.btn-info(ng-click="ajouterExemplaire()" type="button") Ajouter
+    div(ng-app="app", ng-controller="OrchestrateurControleur")
+        ng-view
 
-            .col-md-6
-                .panel.panel-default
-                    .panel-heading
-                        | Livres déjà disponibles
-                    .panel-body
-                        input.form-control(ng-model="filtreTitre", type="text", placeholder="Filtrer la liste")
-                    ul.list-group(ng-controller="LivresControleur")
-                        li.list-group-item(ng-repeat="livre in livres | filter:filtreTitre") {{livre.titre}}
-                            span.badge {{livre.nombre}}
 
 block js
     script(src='/genere/js/app_pkg.js')

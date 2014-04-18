@@ -1,7 +1,7 @@
 describe("OrchestrateurControleur", function () {
     'use strict';
 
-    var $scope, controller;
+    var $scope, controller, location;
 
     beforeEach(function () {
         angular.mock.module('commun');
@@ -9,8 +9,10 @@ describe("OrchestrateurControleur", function () {
 
     beforeEach(inject(function ($rootScope, $controller) {
         $scope = $rootScope.$new();
+        location = jasmine.createSpyObj("location", ["path"]);
         controller = $controller('OrchestrateurControleur', {
-            $scope: $scope
+            $scope: $scope,
+            $location : location
         });
     }));
 
@@ -18,23 +20,11 @@ describe("OrchestrateurControleur", function () {
         expect(controller).toBeDefined();
     });
 
-    it("quand un évènement AjoutExemplaire est émis, le contrôleur le propage", function () {
+    it("quand un évènement AjoutExemplaire est émis, le contrôleur retourne à l'index", function () {
         spyOn($scope, "$broadcast");
 
         $scope.$emit("ExemplaireAjoute");
 
-        expect($scope.$broadcast).toHaveBeenCalledWith("PropagationExemplaireAjoute");
-        expect($scope.$broadcast.callCount).toBe(1);
-    });
-
-    it("peut tester d'une autre manière", function () {
-        var propage = false;
-        $scope.$on("PropagationExemplaireAjoute", function () {
-            propage = true;
-        });
-
-        $scope.$emit("ExemplaireAjoute");
-
-        expect(propage).toBeTruthy();
+        expect(location.path).toHaveBeenCalledWith("/index");
     });
 });

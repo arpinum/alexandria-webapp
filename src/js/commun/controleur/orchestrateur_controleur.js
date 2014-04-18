@@ -2,9 +2,10 @@
     'use strict';
 
     angular.module('commun')
-        .controller('OrchestrateurControleur', ['$scope', function ($scope) {
+        .controller('OrchestrateurControleur', ['$scope', '$location', function ($scope, $location) {
             $scope.$on("ExemplaireAjoute", function(){
-               $scope.$broadcast("PropagationExemplaireAjoute");
+                console.log("anrsiuternauenlst");
+                $location.path("/index");
             });
 
         }]);
