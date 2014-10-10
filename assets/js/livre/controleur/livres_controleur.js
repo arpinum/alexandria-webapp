@@ -1,3 +1,6 @@
+//= require ../_module.js
+//= require ../ressource/livres_ressource.js
+
 (function (angular) {
     'use strict';
 

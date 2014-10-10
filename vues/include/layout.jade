@@ -23,7 +23,8 @@ html
 
 
         link(href='/bower_components/bootstrap/dist/css/bootstrap.css', rel='stylesheet', type='text/css')
-        link(href="/genere/css/style.css", rel='stylesheet', type='text/css')
+        != css("style")
+
 
     body(class=classe ,ng-app="app", ng-controller="OrchestrateurControleur")
         nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
@@ -57,11 +58,7 @@ html
             block content
             hr
             footer Licence WTFPL
-        script(src="/bower_components/angular/angular.js")
-        script(src="/bower_components/angular-resource/angular-resource.js")
-        script(src="/bower_components/angular-sanitize/angular-sanitize.js")
-        script(src="/bower_components/angular-route/angular-route.js")
-        script(src="/bower_components/jquery/jquery.js")
-        script(src="/bower_components/bootstrap/dist/js/bootstrap.js")
-        script(src="/configuration.js")
+
+
+        != js("vendor")
         block js

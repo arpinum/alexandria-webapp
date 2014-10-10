@@ -1,3 +1,5 @@
+//= require ../_module.js
+
 (function (angular) {
     'use strict';
 

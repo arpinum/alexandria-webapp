@@ -54,19 +54,17 @@ describe("ExemplaireControleur", function () {
         expect(emis).toBeTruthy();
     });
 
-    it("doit pouvoir faire une recherche", function () {
-        var queryDonné,
-            livres = [];
-        recherche.recherche.andCallFake(function (query, callback) {
-            queryDonné = query;
-            callback({livres: livres});
-        });
-        $scope.titre = "test";
+    it("doit pouvoir faire une recherche", inject(function ($q) {
+        var livres = [];
+        var rechercheDeferred = $q.defer();
+        rechercheDeferred.resolve(livres);
+        recherche.recherche.andReturn(rechercheDeferred.promise);
 
-        $scope.recherche();
+        var result = $scope.recherche("test");
 
-        expect(queryDonné).toEqual({q: "test"});
-        expect($scope.livres).toBe(livres);
-    });
+        expect(recherche.recherche).toHaveBeenCalledWith("test");
+        $scope.$digest();
+        expect(result).toBeDefined();
+    }));
 
 });

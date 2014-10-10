@@ -19,7 +19,8 @@ module.exports = function(config) {
       'public/bower_components/angular-resource/angular-resource.js',
       'public/bower_components/angular-sanitize/angular-sanitize.js',
       'public/bower_components/angular-mocks/angular-mocks.js',
-      'src/js/**/*.js',
+      'public/bower_components/angular-bootstrap/ui-bootstrap.js',
+      'assets/js/**/*.js',
       'spec/**/*.js'
     ],
 

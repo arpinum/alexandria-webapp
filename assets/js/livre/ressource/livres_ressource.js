@@ -1,8 +1,10 @@
+//= require ../_module.js
+
 (function (angular) {
     'use strict';
     angular.module("livre")
         .factory("Livres", ['$resource', function ($resource) {
-            return $resource("/livres", {}, {
+            return $resource("/api/livres", {}, {
                 get: {method: 'GET', isArray: true}
             });
         }]);

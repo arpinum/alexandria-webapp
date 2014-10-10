@@ -1,3 +1,7 @@
+//= require ../_module.js
+//= require ../ressource/exemplaires_ressource.js
+//= require livre/ressource/recherche_ressource.js
+
 (function (angular) {
     'use strict';
 
@@ -5,14 +9,15 @@
         .controller('ExemplairesControleur',
         ['$scope', 'Exemplaires', 'Recherche', function ($scope, Exemplaires, Recherche) {
             $scope.exemplaire = {};
-            $scope.recherche = function () {
-                Recherche.recherche({q:encodeURIComponent($scope.titre)}, function (data) {
-                    $scope.livres = data.livres;
+            $scope.recherche = function (chaine) {
+                return Recherche.recherche(encodeURIComponent(chaine)).then(function (data) {
+                    return data.livres;
                 });
             };
 
-            $scope.ajouterExemplaire = function () {
-                Exemplaires.put($scope.exemplaire, null, function () {
+            $scope.ajouterExemplaire = function (exemplaire) {
+                console.log(exemplaire);
+                Exemplaires.ajoute(exemplaire, null, function () {
                     $scope.$emit("ExemplaireAjoute");
                 });
             };

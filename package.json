@@ -1,33 +1,39 @@
 {
-    "name": "votre-application",
-    "version": "0.0.1",
-    "scripts": {
-        "start": "node app",
-        "postinstall": "./node_modules/bower/bin/bower install"
-    },
-    "dependencies": {
-        "express": "3.x",
-        "underscore": "~1.5.1",
-        "i18next": "~1.7.1",
-        "jade": "^1.3.1",
-        "bower": "1.3.x",
-        "karma": "^0.12.4",
-        "karma-osx-reporter": "0.0.4",
-        "karma-jasmine": "^0.1.5",
-        "gulp": "^3.6.0",
-        "gulp-less": "^1.2.3",
-        "gulp-changed": "^0.3.0",
-        "gulp-concat": "^2.2.0",
-        "phantomjs": "^1.9.7-3",
-        "karma-phantomjs-launcher": "^0.1.4",
-        "gulp-jshint": "^1.5.3",
-        "jshint-stylish": "^0.1.5",
-        "gulp-exec": "^1.0.4",
-        "gulp-livereload": "^1.2.0",
-        "gulp-karma": "0.0.4"
-    },
-    "engines": {
-        "node": "0.10.x",
-        "npm": "1.2.x"
-    }
+  "name": "votre-application",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node app",
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
+  "dependencies": {
+    "body-parser": "^1.8.3",
+    "bower": "1.3.x",
+    "connect-assets": "^4.3.0",
+    "cookie-parser": "^1.3.3",
+    "express": "4.x",
+    "gulp": "^3.6.0",
+    "gulp-changed": "^0.3.0",
+    "gulp-concat": "^2.2.0",
+    "gulp-exec": "^1.0.4",
+    "gulp-jshint": "^1.5.3",
+    "gulp-karma": "0.0.4",
+    "gulp-less": "^1.2.3",
+    "gulp-livereload": "^1.2.0",
+    "i18next": "~1.7.1",
+    "jade": "^1.3.1",
+    "jshint-stylish": "^0.1.5",
+    "karma": "^0.12.4",
+    "karma-jasmine": "^0.1.5",
+    "karma-osx-reporter": "0.0.4",
+    "karma-phantomjs-launcher": "^0.1.4",
+    "less": "^1.7.5",
+    "phantomjs": "^1.9.7-3",
+    "request": "^2.45.0",
+    "serve-static": "^1.6.1",
+    "underscore": "~1.5.1"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
 }

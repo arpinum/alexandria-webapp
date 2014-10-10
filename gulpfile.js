@@ -12,8 +12,7 @@ require('jshint-stylish');
 
 
 var paths = {
-    js: ['./src/js/**/*.js'],
-    less: './src/less/*.less',
+    js: ['./assets/js/**/*.js'],
     testJs: [
         'public/bower_components/underscore/underscore.js',
         'public/bower_components/angular/angular.js',
@@ -24,24 +23,6 @@ var paths = {
         'spec/**/*.js'
     ]
 };
-
-gulp.task('less', function () {
-    gulp.src(paths.less)
-        //.pipe(changed('./public/genere/css'))
-        .pipe(less({
-            paths: [path.join(__dirname, 'less', 'includes')]
-        }))
-        .pipe(gulp.dest('./public/genere/css'));
-});
-
-gulp.task('js', function () {
-    gulp.src(paths.js)
-        .pipe(jshint())
-        .pipe(jshint.reporter('jshint-stylish'))
-        .pipe(changed('./public/genere/js'))
-        .pipe(concat('app_pkg.js'))
-        .pipe(gulp.dest('./public/genere/js'));
-});
 
 
 gulp.task('server', function () {
@@ -59,18 +40,10 @@ gulp.task('test', function () {
 });
 
 gulp.task('watch', function () {
-    var server = livereload();
-    gulp.watch(_.union(paths.js, paths.testJs), ['js', 'test']);
-    gulp.watch(paths.less, ['less']);
-    gulp.watch('./public/genere/css/**/*.css').on('change', reload);
-    gulp.watch('vues/**/*.jade').on('change', reload);
-    function reload() {
-        server.changed("");
-    }
+    gulp.watch(_.union(paths.js, paths.testJs), ['test']);
 });
 
-gulp.task('build', ['less', 'js']);
 
-gulp.task('default', ['build', 'server', 'test', 'watch']);
+gulp.task('default', ['server', 'test', 'watch']);
 
 gulp.task('heroku:production', ['build']);
