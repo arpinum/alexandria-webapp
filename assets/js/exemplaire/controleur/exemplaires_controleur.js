@@ -16,7 +16,6 @@
             };
 
             $scope.ajouterExemplaire = function (exemplaire) {
-                console.log(exemplaire);
                 Exemplaires.ajoute(exemplaire, null, function () {
                     $scope.$emit("ExemplaireAjoute");
                 });

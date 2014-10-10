@@ -5,7 +5,7 @@
 (function (angular) {
     'use strict';
     angular.module("app", ['ngResource', 'ui.bootstrap', 'ngRoute', 'livre', 'exemplaire', 'commun'])
-        .config(['$httpProvider', '$routeProvider', function ($httpProvider, $routeProvider) {
+        .config(['$routeProvider', function ($routeProvider) {
             $routeProvider
                 .when("/index", {
                     controller: "LivresControleur",
