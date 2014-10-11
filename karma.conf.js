@@ -20,8 +20,7 @@ module.exports = function(config) {
       'public/bower_components/angular-sanitize/angular-sanitize.js',
       'public/bower_components/angular-mocks/angular-mocks.js',
       'public/bower_components/angular-bootstrap/ui-bootstrap.js',
-      'assets/js/**/*.js',
-      'spec/**/*.js'
+      'assets/js/**/*.js'
     ],
 
 

@@ -3,8 +3,8 @@
         | Livres déjà disponibles
     .panel-body
         input.form-control(type='text', placeholder='Filtrer la liste', ng-model='filtreTitre')
-        ul.list-group(ng-controller='LivresControleur')
-            li.list-group-item(ng-repeat='livre in livres | filter:filtreTitre')
+        div.list-group(ng-controller='LivresControleur')
+            a.list-group-item(ng-repeat='livre in livres | filter:filtreTitre', ng-href="#/livres/{{livre._id}}")
                 | {{livre.titre}}
                 span.badge {{livre.nombre}}
     .well.text-center

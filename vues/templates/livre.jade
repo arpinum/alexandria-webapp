@@ -1,0 +1,11 @@
+header.clearfix
+    img.pull-left(ng-src="{{livre.image}}")
+    h1(ng-bind="livre.titre")
+section.clearfix
+    .panel.panel-default
+        .panel-heading
+            .panel-title: h2 Exemplaires
+        ul.list-group
+            li.list-group-item(ng-repeat="exemplaire in livre.exemplaires")
+                span(ng-bind="exemplaire.emailLecteur")
+                span.pull-right.glyphicon(ng-class="{true:'glyphicon-thumbs-up', false:'glyphicon-thumbs-down'}[exemplaire.disponible]") &nbsp;

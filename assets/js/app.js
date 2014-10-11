@@ -1,4 +1,5 @@
 //= require livre/controleur/livres_controleur.js
+//= require livre/controleur/livre_controleur.js
 //= require exemplaire/controleur/exemplaires_controleur.js
 //= require commun/controleur/orchestrateur_controleur.js
 
@@ -10,6 +11,10 @@
                 .when("/index", {
                     controller: "LivresControleur",
                     templateUrl: "/templates/index"
+                })
+                .when("/livres/:isbn", {
+                    controller: "LivreControleur",
+                    templateUrl: "/templates/livre"
                 })
                 .when("/ajout-exemplaire", {
                     controller: "ExemplairesControleur",

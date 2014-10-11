@@ -20,7 +20,7 @@ var paths = {
         'public/bower_components/angular-sanitize/angular-sanitize.js',
         'public/bower_components/angular-route/angular-route.js',
         'public/bower_components/angular-mocks/angular-mocks.js',
-        'spec/**/*.js'
+        'assets/**/*.spec.js'
     ]
 };
 
