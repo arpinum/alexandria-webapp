@@ -9,7 +9,7 @@ describe("ExemplaireControleur", function () {
 
     beforeEach(inject(function ($rootScope, $controller) {
         $scope = $rootScope.$new();
-        exemplaires = jasmine.createSpyObj("ressource", ['put']);
+        exemplaires = jasmine.createSpyObj("ressource", ['ajoute']);
         recherche = jasmine.createSpyObj("recherche", ['recherche']);
 
         controller = $controller('ExemplairesControleur', {
@@ -26,21 +26,21 @@ describe("ExemplaireControleur", function () {
     });
 
     it("doit pouvoir creer un exemplaire", function () {
-        $scope.exemplaire = {
+        var exemplaire = {
             isbn: "isbn",
             email: "email"
         };
 
-        $scope.ajouterExemplaire();
+        $scope.ajouterExemplaire(exemplaire);
 
-        expect(exemplaires.put).toHaveBeenCalledWith({ isbn: "isbn", email: "email"}, null, jasmine.any(Function));
+        expect(exemplaires.ajoute).toHaveBeenCalledWith({ isbn: "isbn", email: "email"}, null, jasmine.any(Function));
     });
 
     it("doit emettre un evenement lors de l'ajout d'un exemplaire", function () {
-        exemplaires.put.andCallFake(function (params, body, callback) {
+        exemplaires.ajoute.andCallFake(function (params, body, callback) {
             callback();
         });
-        $scope.exemplaire = {
+        var exemplaire = {
             isbn: "isbn",
             email: "email"
         };
@@ -49,7 +49,7 @@ describe("ExemplaireControleur", function () {
             emis = true;
         });
 
-        $scope.ajouterExemplaire();
+        $scope.ajouterExemplaire(exemplaire);
 
         expect(emis).toBeTruthy();
     });

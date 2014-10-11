@@ -4,7 +4,7 @@ var express = require("express"),
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var serveStatic = require('serve-static');
-
+var proxy = require('express-http-proxy');
 
 
 var app = express();
@@ -25,6 +25,12 @@ if ('development' === app.get('env')) {
 if ('production' === app.get('env')) {
     app.set('urlApi', 'http://alexandria-api.herokuapp.com');
 }
+
+app.use('/api', proxy(app.get('urlApi'), {
+    forwardPath: function(req, res) {
+        return require('url').parse(req.url).path;
+    }
+}));
 
 
 app.use(i18n.handle);
