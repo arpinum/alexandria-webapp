@@ -1,7 +1,5 @@
 var gulp = require('gulp');
-var less = require('gulp-less');
 var path = require('path');
-var changed = require('gulp-changed');
 var concat = require('gulp-concat');
 var jshint = require('gulp-jshint');
 var exec = require('gulp-exec');
