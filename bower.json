@@ -1,5 +1,5 @@
 {
-  "name": "votre webapp",
+  "name": "Alexandria webapp",
   "version": "0.0.1",
   "dependencies": {
     "underscore": "~1.5.1",
