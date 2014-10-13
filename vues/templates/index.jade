@@ -4,7 +4,7 @@
     .panel-body
         input.form-control(type='text', placeholder='Filtrer la liste', ng-model='filtreTitre')
         div.list-group(ng-controller='LivresControleur')
-            a.list-group-item(ng-repeat='livre in livres | filter:filtreTitre', ng-href="#/livres/{{livre._id}}")
+            a.list-group-item(ng-repeat='livre in livres | filter:filtreTitre', ng-href="#/livres/{{livre.isbn}}")
                 | {{livre.titre}}
                 span.badge {{livre.nombre}}
     .well.text-center
