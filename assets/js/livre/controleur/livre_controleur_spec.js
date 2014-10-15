@@ -1,7 +1,7 @@
 describe("LivreControleur", function () {
     'use strict';
 
-    var $scope, controller, Livre;
+    var $scope, controller, Livre, Emprunts;
 
     beforeEach(function () {
         angular.mock.module('livre');
@@ -11,6 +11,7 @@ describe("LivreControleur", function () {
         $scope = $rootScope.$new();
         Livre = jasmine.createSpyObj("livre", ["get"]);
         Livre.get.andReturn([]);
+        Emprunts = jasmine.createSpyObj("emprunts", ["ajoute"]);
         demarreControleur($controller);
     }));
 
@@ -22,11 +23,37 @@ describe("LivreControleur", function () {
         expect($scope.livre).toEqual([]);
     });
 
+
+    it("peut sélectionner un exemplaire pour emprunt", function () {
+        var exemplaire = {}
+        $scope.montreReservationPour(exemplaire);
+
+        expect($scope.exemplaireSelectionne).toEqual(exemplaire);
+    });
+
+    it("initialise l'emprunt sur sélection exemplaire", function () {
+        var exemplaire = {idBibliotheque: "id"};
+        $scope.livre = {isbn: "isbn"};
+
+        $scope.montreReservationPour(exemplaire);
+
+        expect($scope.emprunt).toBeDefined();
+        expect($scope.emprunt.isbn).toEqual("isbn");
+        expect($scope.emprunt.identifiantBibliotheque).toEqual("id");
+    });
+
+    it("peut demander à créer l'emprunt", inject(function () {
+        $scope.emprunte({});
+
+        expect(Emprunts.ajoute).toHaveBeenCalledWith({}, jasmine.any(Function));
+    }));
+
     function demarreControleur($controller) {
         controller = $controller('LivreControleur', {
             $scope: $scope,
-            $routeParams: {isbn:"test"},
-            Livre: Livre
+            $routeParams: {isbn: "test"},
+            Livre: Livre,
+            Emprunts: Emprunts
         });
     }
 });

@@ -5,7 +5,7 @@
 
 (function (angular) {
     'use strict';
-    angular.module("app", ['ngResource', 'ui.bootstrap', 'ngRoute', 'livre', 'exemplaire', 'commun'])
+    angular.module("app", ['ngResource', 'ui.bootstrap','ui.utils', 'ngRoute', 'livre', 'exemplaire', 'commun'])
         .config(['$routeProvider', function ($routeProvider) {
             $routeProvider
                 .when("/index", {
