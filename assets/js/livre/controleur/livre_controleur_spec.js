@@ -25,7 +25,7 @@ describe("LivreControleur", function () {
 
 
     it("peut sélectionner un exemplaire pour emprunt", function () {
-        var exemplaire = {}
+        var exemplaire = {};
         $scope.montreReservationPour(exemplaire);
 
         expect($scope.exemplaireSelectionne).toEqual(exemplaire);
