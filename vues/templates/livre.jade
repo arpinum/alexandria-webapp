@@ -8,7 +8,7 @@ section.clearfix
                 .panel-heading
                     .panel-title: h2 Exemplaires
                 div.list-group
-                    a.list-group-item(ng-repeat="exemplaire in livre.exemplaires", ng-click="montreReservationPour(exemplaire)")
+                    a.list-group-item(ng-repeat="exemplaire in livre.exemplaires", ng-click="selectionne(exemplaire)")
                         span.glyphicon(ng-class="{true:'glyphicon-thumbs-up', false:'glyphicon-thumbs-down'}[exemplaire.disponible]") &nbsp;
                         span(ng-bind="exemplaire.emailLecteur")
 
@@ -22,5 +22,14 @@ section.clearfix
                         .form-group
                             label(for="emailLecteur") Votre email
                             input.form-control#emailLecteur(ng-model="emprunt.emailLecteur", type="email", required="true")
+                    .panel-footer
+                        button.btn.btn-primary(type="submit") Confirmer
+        .col-md-4(ng-if="exemplaireSelectionne && !exemplaireSelectionne.disponible")
+            form(role="form", ng-submit="rend(emprunt)")
+                .panel.panel-default
+                    .panel-heading
+                        .panel-title: h5 Emprunt
+                    .panel-body
+                        p(ng-bind="'Rendre $0 à $1 ?'| format:[livre.titre, exemplaireSelectionne.emailLecteur]")
                     .panel-footer
                         button.btn.btn-primary(type="submit") Confirmer
