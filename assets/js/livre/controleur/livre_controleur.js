@@ -18,7 +18,7 @@
         };
 
         $scope.rend = function (emprunt) {
-          Emprunt.rend(emprunt, {}, function () {
+          Emprunt.rend(emprunt, null, function () {
               $scope.exemplaireSelectionne.disponible = true;
           });
         };
