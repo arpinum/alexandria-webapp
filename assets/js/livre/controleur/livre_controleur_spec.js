@@ -51,9 +51,10 @@ describe("LivreControleur", function () {
 
     it("peut demander à rendre un exemplaire", function () {
         var emprunt = {};
+
         $scope.rend(emprunt);
 
-        expect(Emprunt.rend).toHaveBeenCalledWith(emprunt, {}, jasmine.any(Function));
+        expect(Emprunt.rend).toHaveBeenCalledWith(emprunt, null, jasmine.any(Function));
 
     });
 
