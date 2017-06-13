@@ -1,0 +1,20 @@
+{
+  "extends": [
+    "arpinum/configurations/frontend",
+    "plugin:react/recommended",
+    "plugin:flowtype/recommended"
+  ],
+  "env": {
+    "es6": true
+  },
+  "plugins": [
+    "react",
+    "flowtype"
+  ],
+  "globals": {
+    "expect": true,
+    "jest": true,
+    "console": true,
+    "process": true
+  }
+}

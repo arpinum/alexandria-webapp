@@ -3,8 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "eslint-config-arpinum": "^3.0.4",
+    "eslint-plugin-flowtype": "^2.34.0",
+    "eslint-plugin-react": "^7.1.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
+    "rebass": "^0.3.4",
+    "redux": "^3.6.0",
+    "redux-saga": "^0.15.3",
+    "reflexbox": "^3.0.0-0",
+    "tcomb": "^3.2.20"
   },
   "devDependencies": {
     "react-scripts": "1.0.7"
@@ -14,5 +24,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "proxy": "http://localhost:8080"
 }
