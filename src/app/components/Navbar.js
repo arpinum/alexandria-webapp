@@ -1,15 +1,10 @@
 import React from 'react';
-import {Fixed, NavItem, Space, Toolbar} from 'rebass';
+import {Navbar, NavbarBrand} from 'reactstrap';
 
-const Navbar = () => (
-  <Fixed top left right zIndex={1}>
-    <Toolbar>
-      <NavItem href='http://jxnblk.com/rebass'>
-        <span>Alexandria</span>
-      </NavItem>
-      <Space auto/>
-    </Toolbar>
-  </Fixed>
+const AlexandriaNavbar = () => (
+  <Navbar color="faded" light>
+    <NavbarBrand href="/">Alexandria</NavbarBrand>
+  </Navbar>
 );
 
-export default Navbar;
+export default AlexandriaNavbar;

@@ -1,6 +1,5 @@
 import React, {PureComponent} from 'react';
-import {Button, Panel} from 'rebass';
-import {Box} from 'reflexbox';
+import {Button, Card, CardBlock, CardTitle, Form} from 'reactstrap';
 import {Login} from '../actions';
 import tform from 'tcomb-form';
 import t from 'tcomb';
@@ -14,19 +13,21 @@ class ConnexionForm extends PureComponent {
   }
 
   render() {
-    return (<Panel theme="info">
-      <form style={{color: 'black'}} onSubmit={this.login.bind(this)}>
-        <tform.form.Form ref={c => {
-          this.form = c;
-        }} type={Login}>
-        </tform.form.Form>
-        <Box py={2}>
-          <Button type="submit" big>
+    return (<Card>
+      <CardBlock>
+      <CardTitle>Connexion</CardTitle>
+        <Form onSubmit={this.login.bind(this)}>
+          <tform.form.Form ref={c => {
+            this.form = c;
+          }} type={Login}>
+          </tform.form.Form>
+
+          <Button type="submit" color="primary">
             Connexion
           </Button>
-        </Box>
-      </form>
-    </Panel>);
+
+        </Form></CardBlock>
+    </Card>);
   }
 }
 
