@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Banner, Footer, Heading} from 'rebass';
 import './App.css';
 import Navbar from './app/components/Navbar';
-import ConnexionForm from './authentification/components/ConnexionForm';
+import ConnexionForm from './authentification/components/ConnexionFormContainer';
 
 class App extends Component {
   render() {
