@@ -1,8 +1,8 @@
 import t from 'tcomb';
 
-const LOGIN = 'LOGIN';
+export const LOGIN = 'LOGIN';
 
-export const Login = t.struct({
+export const Login = t.interface({
   email: t.String,
   prénom: t.String,
   nom: t.String,

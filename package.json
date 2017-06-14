@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.16.2",
     "bootstrap": "4.0.0-alpha.6",
     "eslint-config-arpinum": "^3.0.4",
     "eslint-plugin-flowtype": "^2.34.0",
     "eslint-plugin-react": "^7.1.0",
+    "jwt-decode": "^2.2.0",
     "react": "^15.5.4",
     "react-addons-css-transition-group": "^15.6.0",
     "react-addons-transition-group": "^15.6.0",
