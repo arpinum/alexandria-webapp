@@ -3,7 +3,7 @@ import axios from 'axios';
 import loginSaga from './authentification/saga/loginSaga';
 import AuthentificationApi from './authentification/api/AuthentificationApi';
 
-export default function* ApplicationSaga() {
+export default function* ApplicationSaga(history) {
   const {token} = yield call(loginSaga(AuthentificationApi(axios)));
   axios.interceptors.request.use(configuration => {
     configuration.headers = {
@@ -11,4 +11,5 @@ export default function* ApplicationSaga() {
     };
     return configuration;
   });
+  history.push('/livres');
 }

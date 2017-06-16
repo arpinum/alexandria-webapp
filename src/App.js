@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import {Container, Row, Col, Jumbotron} from 'reactstrap';
+import {Container} from 'reactstrap';
 import './App.css';
 import Navbar from './app/components/Navbar';
-import ConnexionForm from './authentification/components/ConnexionFormContainer';
+import AppRouter from './Router';
+import {propTypes} from 'tcomb-react';
+import t from 'tcomb';
 
 class App extends Component {
   render() {
@@ -12,21 +14,15 @@ class App extends Component {
         <Container style={{
           paddingTop: 10,
         }}>
-          <Row>
-            <Col>
-              <Jumbotron>
-                <h1 className="display-3">Alexandria</h1>
-                <p className="lead">Une application pas nécessairement très utile</p>
-              </Jumbotron>
-            </Col>
-            <Col>
-              <ConnexionForm/>
-            </Col>
-          </Row>
+          <AppRouter history={this.props.history}/>
         </Container>
       </div>
     );
   }
 }
+
+App.propTypes = propTypes(t.struct({
+  history: t.Any
+}));
 
 export default App;
