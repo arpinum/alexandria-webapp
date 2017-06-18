@@ -3,6 +3,7 @@ import Home from './app/components/Home';
 import Livres from './alexandria/livres/components/LivresContainer';
 import {Route, Router} from 'react-router-dom';
 import {propTypes} from 'tcomb-react';
+import RouteAvecAuth from './authentification/components/RouteAvecAuthContainer';
 import t from 'tcomb';
 
 const AppRouter = ({history}) => (
@@ -10,7 +11,10 @@ const AppRouter = ({history}) => (
     <div>
       <Route exact path="/" component={Home}/>
 
-      <Route path="/livres" component={Livres}/>
+      <RouteAvecAuth path="/app">
+        <Route path="/app/livres" component={Livres}/>
+      </RouteAvecAuth>
+
     </div>
   </Router>);
 

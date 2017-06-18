@@ -1,15 +1,8 @@
-import {call, takeEvery, put} from 'redux-saga/effects';
-import {CHARGE_LIVRES, livresCharges} from '../actions';
+import {fork} from 'redux-saga/effects';
+import chargeLivresSaga from './chargeLivresSaga';
 
 export default function (history, livresApi) {
-
   return function*() {
-    yield takeEvery(CHARGE_LIVRES, charge);
-    history.push('/livres');
+    yield fork(chargeLivresSaga, history, livresApi);
   };
-
-  function* charge() {
-    const livres = yield call(livresApi.tous);
-    yield put(livresCharges(livres));
-  }
 }

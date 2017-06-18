@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {chargeLivres as charge} from '../actions';
+import {chargeLivres as charge} from '../actions/chargementActions';
 import Livres from './Livres';
 import _ from 'lodash';
 

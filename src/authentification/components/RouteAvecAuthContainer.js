@@ -1,4 +1,5 @@
 import RouteAvecAuth from './RouteAvecAuth';
+import {withRouter} from 'react-router';
 import {connect} from 'react-redux';
 
 const mapStateToProps = ({app: {lecteur}}) => (
@@ -7,4 +8,4 @@ const mapStateToProps = ({app: {lecteur}}) => (
   }
 );
 
-export default connect(mapStateToProps, ()=>({}))(RouteAvecAuth);
+export default withRouter(connect(mapStateToProps, ()=>({}))(RouteAvecAuth));
