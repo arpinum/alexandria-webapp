@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
-import {Badge, Table} from 'reactstrap';
+import {Badge, Card, CardBlock, CardText, CardTitle, Col} from 'reactstrap';
 
 class Livres extends PureComponent {
 
@@ -11,27 +11,22 @@ class Livres extends PureComponent {
 
   render() {
     const lignes = this.props.livres.map((l) =>
-      <tr key={l.isbn}>
-        <td>{l.isbn}</td>
-        <td>{l.titre}</td>
-        <td><Badge pill>{l.nombre}</Badge></td>
-      </tr>,
+      <Col xs="6" key={l.isbn}>
+        <Card key={l.isbn}>
+          <CardBlock>
+            <CardTitle>{l.titre}<Badge pill>{l.nombre}</Badge> </CardTitle>
+          </CardBlock>
+          <img src={l.image} alt=""/>
+          <CardBlock>
+            <CardText>{l.description}</CardText>
+          </CardBlock>
+        </Card>
+      </Col>,
     );
     return (
       <div>
         <h1>Livres</h1>
-        <Table>
-          <thead>
-          <tr>
-            <td>ISBN</td>
-            <td>Titre</td>
-            <td>En stock</td>
-          </tr>
-          </thead>
-          <tbody>
-          {lignes}
-          </tbody>
-        </Table>
+        {lignes}
       </div>
     );
   }

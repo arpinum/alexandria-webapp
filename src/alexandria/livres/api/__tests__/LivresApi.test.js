@@ -21,6 +21,7 @@ describe('LivresApi', () => {
     const data = [{
       isbn:'isbn',
       titre:'titre',
+      description: 'des',
       nombre:3
     }];
     get.mockImplementation(() => Promise.resolve({data}));
@@ -29,6 +30,7 @@ describe('LivresApi', () => {
       expect(result).toEqual([{
         isbn:'isbn',
         titre:'titre',
+        description: 'des',
         nombre:3
       }]);
       done();
