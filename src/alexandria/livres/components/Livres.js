@@ -4,12 +4,9 @@ import t from 'tcomb';
 import Livre from './Livre';
 import {Col, Row} from 'reactstrap';
 import {ListeResumes} from '../api/types';
+import NavigationButton from '../../../app/components/NavigationButton';
 
 class Livres extends PureComponent {
-
-  constructor(props) {
-    super(props);
-  }
 
   componentDidMount() {
     this.props.charge();
@@ -23,7 +20,9 @@ class Livres extends PureComponent {
     );
     return (
       <div>
-        <h1>Livres</h1>
+        <h1>Livres
+          <NavigationButton to="/nouvelexemplaire">Déposer un exemplaire</NavigationButton>
+        </h1>
         <Row>
           {lignes}
         </Row>

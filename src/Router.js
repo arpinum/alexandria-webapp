@@ -1,6 +1,7 @@
 import React from 'react';
 import Home from './app/components/Home';
 import Livres from './alexandria/livres/components/LivresContainer';
+import AjoutExemplaire from './alexandria/livres/components/AjoutExemplaire';
 import {Route, Router} from 'react-router-dom';
 import {propTypes} from 'tcomb-react';
 import RouteAvecAuth from './authentification/components/RouteAvecAuthContainer';
@@ -11,9 +12,8 @@ const AppRouter = ({history}) => (
     <div>
       <Route exact path="/" component={Home}/>
 
-      <RouteAvecAuth path="/app">
-        <Route path="/app/livres" component={Livres}/>
-      </RouteAvecAuth>
+      <RouteAvecAuth path="/livres" component={Livres}/>
+      <RouteAvecAuth path="/nouvelexemplaire" component={AjoutExemplaire}/>
 
     </div>
   </Router>);

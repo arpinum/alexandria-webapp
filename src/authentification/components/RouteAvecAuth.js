@@ -3,10 +3,11 @@ import {Redirect, Route} from 'react-router-dom';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
 
-const RouteAvecAuth = ({children, authentifie, ...rest}) => (
-  <Route {...rest} render={() => (
-    authentifie ?
-      children
+const RouteAvecAuth = ({component: Component, authentifie, ...rest}) => (
+  <Route {...rest} render={(props) => (
+    authentifie ? (
+      <Component {...props}/>
+    )
       : (
       <Redirect to="/"/>
     )
@@ -14,7 +15,7 @@ const RouteAvecAuth = ({children, authentifie, ...rest}) => (
 );
 
 RouteAvecAuth.propTypes = propTypes(t.struct({
-  component: t.Any,
+  component: t.Function,
   authentifie: t.Boolean,
 }), {strict: false});
 
