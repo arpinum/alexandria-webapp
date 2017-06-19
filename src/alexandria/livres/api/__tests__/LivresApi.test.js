@@ -19,19 +19,21 @@ describe('LivresApi', () => {
 
   it('vérifie les livres', (done) => {
     const data = [{
-      isbn:'isbn',
-      titre:'titre',
+      isbn: 'isbn',
+      titre: 'titre',
       description: 'des',
-      nombre:3
+      image: 'http://',
+      nombre: 3
     }];
     get.mockImplementation(() => Promise.resolve({data}));
 
     return api.tous().then((result) => {
       expect(result).toEqual([{
-        isbn:'isbn',
-        titre:'titre',
+        isbn: 'isbn',
+        titre: 'titre',
         description: 'des',
-        nombre:3
+        image: 'http://',
+        nombre: 3
       }]);
       done();
     });
