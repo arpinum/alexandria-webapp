@@ -3,22 +3,16 @@ import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
 import Livre from './Livre';
 import {Col, Row} from 'reactstrap';
+import {ListeResumes} from '../api/types';
 
 class Livres extends PureComponent {
 
   constructor(props) {
     super(props);
-    this.state = {
-      collapse: false
-    };
   }
 
   componentDidMount() {
     this.props.charge();
-  }
-
-  toggle() {
-    this.setState({collapse: !this.state.collapse});
   }
 
   render() {
@@ -39,7 +33,7 @@ class Livres extends PureComponent {
 }
 
 Livres.propTypes = propTypes(t.struct({
-  livres: t.Array,
+  livres: ListeResumes,
   status: t.String,
   charge: t.Func,
 }), {

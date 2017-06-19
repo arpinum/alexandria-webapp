@@ -11,6 +11,7 @@ class Livre extends PureComponent {
     this.state = {
       collapse: false
     };
+    this.toggle = this.toggle.bind(this);
   }
 
   toggle() {
@@ -28,7 +29,7 @@ class Livre extends PureComponent {
           width: '100%',
           height: 'auto'
         }}/>
-        <Button color="primary" onClick={this.toggle.bind(this)}>{this.state.collapse ? 'Cacher': 'Description'}</Button>
+        <Button color="primary" onClick={this.toggle}>{this.state.collapse ? 'Cacher': 'Description'}</Button>
         <Collapse isOpen={this.state.collapse}>
           <CardBlock>
             <CardText>{l.description}</CardText>

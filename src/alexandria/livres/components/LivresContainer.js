@@ -9,6 +9,6 @@ const mapStateToProps = ({livres: {status, parId: livres}}) => ({
   livres: _.values(livres),
 });
 
-const mapDispatchToProps = (dispatch) =>bindActionCreators({charge}, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({charge}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Livres);
