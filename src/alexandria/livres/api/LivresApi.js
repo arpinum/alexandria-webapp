@@ -1,14 +1,4 @@
-import t from 'tcomb';
-
-const ResumeLivre = t.struct({
-  isbn: t.String,
-  nombre: t.Integer,
-  image: t.String,
-  titre: t.String,
-  description: t.String,
-}, 'ResumeLivre');
-
-const ListeResumes = t.list(ResumeLivre);
+import {ListeResumes} from './types';
 
 export default function LivresApi(axios) {
 

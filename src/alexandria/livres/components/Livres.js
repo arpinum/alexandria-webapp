@@ -1,32 +1,38 @@
 import React, {PureComponent} from 'react';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
-import {Badge, Card, CardBlock, CardText, CardTitle, Col} from 'reactstrap';
+import Livre from './Livre';
+import {Col, Row} from 'reactstrap';
 
 class Livres extends PureComponent {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      collapse: false
+    };
+  }
 
   componentDidMount() {
     this.props.charge();
   }
 
+  toggle() {
+    this.setState({collapse: !this.state.collapse});
+  }
+
   render() {
     const lignes = this.props.livres.map((l) =>
-      <Col xs="6" key={l.isbn}>
-        <Card key={l.isbn}>
-          <CardBlock>
-            <CardTitle>{l.titre}<Badge pill>{l.nombre}</Badge> </CardTitle>
-          </CardBlock>
-          <img src={l.image} alt=""/>
-          <CardBlock>
-            <CardText>{l.description}</CardText>
-          </CardBlock>
-        </Card>
+      <Col xs="4" key={l.isbn}>
+        <Livre livre={l}/>
       </Col>,
     );
     return (
       <div>
         <h1>Livres</h1>
-        {lignes}
+        <Row>
+          {lignes}
+        </Row>
       </div>
     );
   }
