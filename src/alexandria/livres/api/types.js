@@ -1,11 +1,16 @@
 import t from 'tcomb';
 
-export const ResumeLivre = t.struct({
+export const Livre = t.struct({
   isbn: t.String,
-  nombre: t.Integer,
   image: t.String,
   titre: t.String,
-  description: t.String,
+  description: t.maybe(t.String),
+}, 'Livre');
+
+export const ResumeLivre = Livre.extend({
+  nombre: t.Integer,
 }, 'ResumeLivre');
 
 export const ListeResumes = t.list(ResumeLivre);
+
+export const ListeLivres = t.list(Livre);
