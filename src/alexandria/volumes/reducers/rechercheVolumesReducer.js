@@ -6,6 +6,6 @@ export default (state = defaultState, {type, payload}) => {
     case VOLUMES_TROUVES:
       return payload;
     default:
-      return defaultState;
+      return state;
   }
 };
