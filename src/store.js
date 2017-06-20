@@ -1,4 +1,5 @@
 import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
+import persistState from 'redux-localstorage';
 import appReducer from './app/reducers';
 import alexandria from './alexandria/reducers';
 import createSagaMiddleware from 'redux-saga';
@@ -12,7 +13,9 @@ const buildStore = (history) => {
   });
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  const store = createStore(rootReducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
+  const store = createStore(rootReducer, composeEnhancers(
+    persistState(),
+    applyMiddleware(sagaMiddleware)));
   sagaMiddleware.run(appSaga, history);
   return store;
 };

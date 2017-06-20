@@ -19,6 +19,7 @@
     "react-router-dom": "^4.1.1",
     "reactstrap": "^4.6.2",
     "redux": "^3.6.0",
+    "redux-localstorage": "^0.4.1",
     "redux-saga": "^0.15.3",
     "tcomb": "^3.2.20",
     "tcomb-form": "^0.9.16",

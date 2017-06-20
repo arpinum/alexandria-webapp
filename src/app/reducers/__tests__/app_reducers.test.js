@@ -1,5 +1,5 @@
 import appReducer from '../index';
-import {LOGIN} from '../../../authentification/actions';
+import {LOGIN_REUSSI} from '../../../authentification/actions';
 
 describe('AppReducer', () => {
 
@@ -10,8 +10,8 @@ describe('AppReducer', () => {
   });
 
   it('ajoute le lecteur', () => {
-    const newState = appReducer({}, {type: LOGIN, payload: {nom: 'dusse'}});
+    const newState = appReducer({}, {type: LOGIN_REUSSI, payload: {nom: 'dusse'}});
 
-    expect(newState).toEqual({lecteur: {nom: 'dusse'}});
+    expect(newState).toEqual({nom: 'dusse'});
   });
 });

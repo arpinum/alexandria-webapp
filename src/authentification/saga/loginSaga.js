@@ -1,5 +1,5 @@
-import {LOGIN} from '../actions';
-import {call, take} from 'redux-saga/effects';
+import {LOGIN, loginReussi} from '../actions';
+import {call, put, take} from 'redux-saga/effects';
 import AuthentificationApi from '../api/AuthentificationApi';
 
 export default (axios) => {
@@ -7,7 +7,7 @@ export default (axios) => {
   return function* loginSaga() {
     const {payload} = yield take(LOGIN);
     const token = yield call(authApi.connecte, payload);
-    return token;
+    yield put(loginReussi(token, payload));
   };
 };
 

@@ -9,3 +9,7 @@ export const Login = t.interface({
 }, 'Login');
 
 export const login = (payload) => ({type: LOGIN, payload: Login(payload)});
+
+export const LOGIN_REUSSI = 'LOGIN_REUSSI';
+
+export const loginReussi = (token, lecteur) => ({type: LOGIN_REUSSI, payload:{token, lecteur}});
