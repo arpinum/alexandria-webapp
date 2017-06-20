@@ -5,6 +5,7 @@ import alexandriaSaga from './alexandria/saga';
 import appSaga from './app/saga';
 
 export default function* ApplicationSaga(history) {
+  yield spawn(appSaga, history);
   const {token} = yield call(loginSaga(axios));
   axios.interceptors.request.use(configuration => {
     configuration.headers = {
@@ -13,5 +14,4 @@ export default function* ApplicationSaga(history) {
     return configuration;
   });
   yield spawn(alexandriaSaga, axios);
-  yield spawn(appSaga, history);
 }
