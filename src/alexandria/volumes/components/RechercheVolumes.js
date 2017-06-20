@@ -1,7 +1,17 @@
 import React, {PureComponent} from 'react';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
-import {Button, FormGroup, Input, Label} from 'reactstrap';
+import {
+  Button,
+  FormGroup,
+  Input,
+  Label,
+  ListGroup,
+  ListGroupItem,
+  ListGroupItemHeading,
+  ListGroupItemText
+} from 'reactstrap';
+import {ListeVolumes} from '../api/types';
 
 class RechercheVolumes extends PureComponent {
 
@@ -34,13 +44,22 @@ class RechercheVolumes extends PureComponent {
             placeholder="Tout ce qui vous passe par la tête"/>
         </FormGroup>
         <Button type="submit" color="primary" onClick={this.recherche}>Rechercher</Button>
+        <ListGroup>
+          {this.props.volumes.map(v => (
+            <ListGroupItem key={v.isbn}>
+              <ListGroupItemHeading>{v.titre}</ListGroupItemHeading>
+              <ListGroupItemText>{v.description}</ListGroupItemText>
+            </ListGroupItem>
+          ))}
+        </ListGroup>
       </div>
     );
   }
 }
 
 RechercheVolumes.propTypes = propTypes(t.struct({
-  recherche: t.Function
+  recherche: t.Function,
+  volumes: ListeVolumes
 }), {strict: false});
 
 export default RechercheVolumes;

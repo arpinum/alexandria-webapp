@@ -3,7 +3,9 @@ import {bindActionCreators} from 'redux';
 import RechercheVolumes from './RechercheVolumes';
 import {rechercheVolume as recherche} from '../actions/rechercheVolumesActions';
 
-const mapStateToProps = () => ({});
+const mapStateToProps = ({alexandria:{volumes:{tous:volumes}}}) => ({
+  volumes
+});
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({recherche}, dispatch);
 
