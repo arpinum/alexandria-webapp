@@ -4,7 +4,7 @@ import {chargeLivres as charge} from '../actions/chargementActions';
 import Livres from './Livres';
 import _ from 'lodash';
 
-const mapStateToProps = ({livres: {status, parId: livres}}) => ({
+const mapStateToProps = ({alexandria:{livres: {status, parId: livres}}}) => ({
   status,
   livres: _.values(livres),
 });

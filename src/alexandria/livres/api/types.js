@@ -1,16 +1,8 @@
 import t from 'tcomb';
+import {Volume} from '../../volumes/api/types';
 
-export const Livre = t.struct({
-  isbn: t.String,
-  image: t.String,
-  titre: t.String,
-  description: t.maybe(t.String),
-}, 'Livre');
-
-export const ResumeLivre = Livre.extend({
+export const ResumeLivre = Volume.extend({
   nombre: t.Integer,
 }, 'ResumeLivre');
 
 export const ListeResumes = t.list(ResumeLivre);
-
-export const ListeLivres = t.list(Livre);

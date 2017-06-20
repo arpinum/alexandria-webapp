@@ -1,7 +1,7 @@
 import {call, spawn} from 'redux-saga/effects';
 import axios from 'axios';
 import loginSaga from './authentification/saga/loginSaga';
-import livresSaga from './alexandria/livres/saga';
+import alexandriaSaga from './alexandria/saga';
 
 export default function* ApplicationSaga(history) {
   const {token} = yield call(loginSaga(axios));
@@ -11,5 +11,5 @@ export default function* ApplicationSaga(history) {
     };
     return configuration;
   });
-  yield spawn(livresSaga(history, axios));
+  yield spawn(alexandriaSaga, history, axios);
 }
