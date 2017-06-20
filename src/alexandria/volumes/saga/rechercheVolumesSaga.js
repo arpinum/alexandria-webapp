@@ -1,5 +1,5 @@
 import {call, put, takeLatest} from 'redux-saga/effects';
-import {RECHERCHE_VOLUMES, volumesTrouves} from '../actions/rechercheVolumesActions';
+import {RECHERCHE_VOLUMES, volumesTrouves} from '../../livres/actions/rechercheVolumesActions';
 
 export default function* rechercheVolumes(livresApi) {
 
