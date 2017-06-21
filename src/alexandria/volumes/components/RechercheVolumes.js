@@ -1,16 +1,7 @@
 import React, {PureComponent} from 'react';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
-import {
-  Button,
-  FormGroup,
-  Input,
-  Label,
-  ListGroup,
-  ListGroupItem,
-  ListGroupItemHeading,
-  ListGroupItemText
-} from 'reactstrap';
+import {Button, FormGroup, Input, Label, Table} from 'reactstrap';
 import {ListeVolumes} from '../api/types';
 
 class RechercheVolumes extends PureComponent {
@@ -23,8 +14,9 @@ class RechercheVolumes extends PureComponent {
   }
 
   recherche(evt) {
-    evt.preventDefault();
-    this.props.recherche(this.state.termes);
+    if (evt.key === 'Enter') {
+      this.props.recherche(this.state.termes);
+    }
   }
 
   gereChangement(event) {
@@ -41,17 +33,23 @@ class RechercheVolumes extends PureComponent {
             value={this.state.termes}
             onChange={this.gereChangement}
             name="termes" id="termes"
-            placeholder="Tout ce qui vous passe par la tête"/>
+            placeholder="Tout ce qui vous passe par la tête"
+            onKeyPress={this.recherche}/>
         </FormGroup>
-        <Button type="submit" color="primary" onClick={this.recherche}>Rechercher</Button>
-        <ListGroup>
+        <Table striped={true}>
+          <tbody>
           {this.props.volumes.map(v => (
-            <ListGroupItem key={v.isbn}>
-              <ListGroupItemHeading>{v.titre}</ListGroupItemHeading>
-              <ListGroupItemText>{v.description}</ListGroupItemText>
-            </ListGroupItem>
+            <tr key={v.isbn}>
+              <td><img src={v.image} alt="Cover" style={{
+                maxHeight: '100px',
+                width: 'auto'
+              }}/></td>
+              <td>{v.titre}</td>
+              <td><Button color="primary" onClick={()=>this.props.onSelection(v)}>Sélectionner</Button></td>
+            </tr>
           ))}
-        </ListGroup>
+          </tbody>
+        </Table>
       </div>
     );
   }
@@ -59,7 +57,8 @@ class RechercheVolumes extends PureComponent {
 
 RechercheVolumes.propTypes = propTypes(t.struct({
   recherche: t.Function,
-  volumes: ListeVolumes
+  volumes: ListeVolumes,
+  onSelection: t.Function
 }), {strict: false});
 
 export default RechercheVolumes;

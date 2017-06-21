@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './app/components/Home';
 import Livres from './alexandria/livres/components/LivresContainer';
-import AjoutExemplaire from './alexandria/exemplaires/components/AjoutExemplaire';
+import AjoutExemplaire from './alexandria/exemplaires/components/AjoutExemplaireContainer';
 import {Route, Router} from 'react-router-dom';
 import {propTypes} from 'tcomb-react';
 import RouteAvecAuth from './authentification/components/RouteAvecAuthContainer';

@@ -7,7 +7,7 @@ export const ajouteExemplaire = volume => ({
 
 export const EXEMPLAIRE_AJOUTE = 'EXEMPLAIRE_AJOUTE';
 
-export const exemplaireAjoute = volume => ({
+export const exemplaireAjoute = exemplaire => ({
   type: EXEMPLAIRE_AJOUTE,
-  payload: volume
+  payload: exemplaire
 });

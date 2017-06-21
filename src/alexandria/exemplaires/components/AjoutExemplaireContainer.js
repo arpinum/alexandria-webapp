@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import AjoutExemplaire from './AjoutExemplaire';
-import {rechercheVolume as recherche} from '../../volumes/actions/rechercheVolumesActions';
+import {ajouteExemplaire as ajoute} from '../actions/ajoutExemplaireActions';
 
 const mapStateToProps = () => ({});
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({recherche}, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({ajoute}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(AjoutExemplaire);
