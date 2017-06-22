@@ -1,12 +1,12 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import RechercheVolumes from './RechercheVolumes';
-import {rechercheVolume as recherche} from '../actions/rechercheVolumesActions';
+import {rechercheVolume as recherche, demarreRecherche as demarre} from '../actions/rechercheVolumesActions';
 
 const mapStateToProps = ({alexandria:{volumes:{tous:volumes}}}) => ({
   volumes
 });
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({recherche}, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({recherche, demarre}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(RechercheVolumes);

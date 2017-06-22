@@ -1,5 +1,5 @@
 import reducer from '../rechercheVolumesReducer';
-import {volumesTrouves} from '../../actions/rechercheVolumesActions';
+import {demarreRecherche, volumesTrouves} from '../../actions/rechercheVolumesActions';
 
 describe('rechercheVolumesReducer', () => {
 
@@ -11,10 +11,17 @@ describe('rechercheVolumesReducer', () => {
 
   it('récupère la liste des volumes', () => {
     const volumes = [{
-      isbn:'test'
+      isbn: 'test'
     }];
     const newState = reducer(undefined, volumesTrouves(volumes));
 
     expect(newState).toEqual(volumes);
   });
+
+  it('nettoie la liste de volumes', () => {
+    const newState = reducer([{}], demarreRecherche())
+
+    expect(newState).toEqual([]);
+  });
+
 });

@@ -1,3 +1,9 @@
+export const DEMARRE_RECHERCHE = 'DEMARRE_RECHERCHE';
+
+export const demarreRecherche = () => ({
+  type: DEMARRE_RECHERCHE
+});
+
 export const RECHERCHE_VOLUMES = 'RECHERCHE_VOLUME';
 
 export const rechercheVolume = termes => ({

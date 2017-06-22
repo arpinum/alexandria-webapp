@@ -13,6 +13,10 @@ class RechercheVolumes extends PureComponent {
     this.state = {termes: ''};
   }
 
+  componentDidMount() {
+    this.props.demarre();
+  }
+
   recherche(evt) {
     if (evt.key === 'Enter') {
       this.props.recherche(this.state.termes);
@@ -56,6 +60,7 @@ class RechercheVolumes extends PureComponent {
 }
 
 RechercheVolumes.propTypes = propTypes(t.struct({
+  demarre: t.Function,
   recherche: t.Function,
   volumes: ListeVolumes,
   onSelection: t.Function
