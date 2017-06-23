@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
 import Livre from './Livre';
-import {Card, CardBlock, CardTitle, Col, Row} from 'reactstrap';
+import {Card, CardTitle, Col, Row} from 'reactstrap';
 import {ListeResumes} from '../../../alexandria/livres/api/types';
 import NavigationButton from '../nav/NavigationButton';
 
@@ -23,11 +23,9 @@ class Livres extends PureComponent {
         <h1>Livres</h1>
         <Row>
           <Col md="4">
-            <Card>
-              <CardBlock>
-                <CardTitle>Déposer le votre </CardTitle>
-                <NavigationButton to="/nouvelexemplaire" color="primary">+</NavigationButton>
-              </CardBlock>
+            <Card block className="text-center">
+              <CardTitle>Déposer le votre </CardTitle>
+              <NavigationButton to="/nouvelexemplaire" color="primary">+</NavigationButton>
             </Card>
           </Col>
           {lignes}
