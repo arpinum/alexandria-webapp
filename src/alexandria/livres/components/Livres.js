@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
 import Livre from './Livre';
-import {Col, Row} from 'reactstrap';
+import {Card, CardBlock, CardTitle, Col, Row} from 'reactstrap';
 import {ListeResumes} from '../api/types';
 import NavigationButton from '../../../app/components/NavigationButton';
 
@@ -20,10 +20,16 @@ class Livres extends PureComponent {
     );
     return (
       <div>
-        <h1>Livres
-          <NavigationButton to="/nouvelexemplaire">Déposer un exemplaire</NavigationButton>
-        </h1>
+        <h1>Livres</h1>
         <Row>
+          <Col md="4">
+            <Card>
+              <CardBlock>
+                <CardTitle>Déposer le votre </CardTitle>
+                <NavigationButton to="/nouvelexemplaire" color="primary">+</NavigationButton>
+              </CardBlock>
+            </Card>
+          </Col>
           {lignes}
         </Row>
       </div>

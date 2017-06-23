@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
 import {ResumeLivre} from '../api/types';
-import {Badge, Card, CardBlock, CardText, CardTitle, Collapse, Button} from 'reactstrap';
+import {Badge, Button, Card, CardBlock, CardTitle, Popover, PopoverContent} from 'reactstrap';
 
 class Livre extends PureComponent {
 
@@ -29,12 +29,10 @@ class Livre extends PureComponent {
           width: '100%',
           height: 'auto'
         }}/>
-        <Button color="primary" onClick={this.toggle}>{this.state.collapse ? 'Cacher': 'Description'}</Button>
-        <Collapse isOpen={this.state.collapse}>
-          <CardBlock>
-            <CardText>{l.description}</CardText>
-          </CardBlock>
-        </Collapse>
+        <Button color="primary" id={`des_${l.isbn}`} onClick={this.toggle}>Description</Button>
+        <Popover placement="left" isOpen={this.state.collapse} target={`des_${l.isbn}`} toggle={this.toggle}>
+          <PopoverContent>{l.description}</PopoverContent>
+        </Popover>
       </Card>);
   }
 

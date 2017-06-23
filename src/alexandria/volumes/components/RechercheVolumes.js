@@ -31,7 +31,7 @@ class RechercheVolumes extends PureComponent {
     return (
       <div>
         <FormGroup>
-          <Label for="termes">Rechercher par titre</Label>
+          <Label for="termes">Rechercher par titre, auteur, description</Label>
           <Input
             type="text"
             value={this.state.termes}

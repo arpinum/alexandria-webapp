@@ -2,6 +2,8 @@ import React, {PureComponent} from 'react';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
 import RechercheVolumes from '../../volumes/components/RechercheVolumesContainer';
+import ButtonRetour from '../../../app/components/ButtonRetour';
+import {Col, Row} from 'reactstrap';
 
 class AjoutExemplaire extends PureComponent {
 
@@ -17,7 +19,14 @@ class AjoutExemplaire extends PureComponent {
   render() {
     return (
       <div>
-        <h1>Nouvel exemplaire</h1>
+        <Row>
+          <Col xs="2">
+            <ButtonRetour/>
+          </Col>
+          <Col xs="auto">
+            <h1>Nouvel exemplaire</h1>
+          </Col>
+        </Row>
         <RechercheVolumes onSelection={this.selection}/>
       </div>
     );
