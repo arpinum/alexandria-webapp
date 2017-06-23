@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import ConnexionForm from './ConnexionForm';
-import {login} from '../actions';
+import {login} from '../../../authentification/actions/index';
 
 const mapStateToProps = () => ({});
 

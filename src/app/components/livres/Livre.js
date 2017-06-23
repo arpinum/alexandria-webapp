@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
-import {ResumeLivre} from '../api/types';
+import {ResumeLivre} from '../../../alexandria/livres/api/types';
 import {Badge, Button, Card, CardBlock, CardTitle, Popover, PopoverContent} from 'reactstrap';
 
 class Livre extends PureComponent {

@@ -1,5 +1,5 @@
 import React from 'react';
-import ConnexionForm from '../../authentification/components/ConnexionFormContainer';
+import ConnexionForm from './auth/ConnexionFormContainer';
 import {Col, Jumbotron, Row} from 'reactstrap';
 
 const Home = () =>

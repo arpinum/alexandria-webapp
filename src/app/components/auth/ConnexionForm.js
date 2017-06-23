@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import {Button, Card, CardBlock, CardTitle, Form} from 'reactstrap';
-import {Login} from '../actions';
+import {Login} from '../../../authentification/actions/index';
 import tform from 'tcomb-form';
 import t from 'tcomb';
 import {propTypes} from 'tcomb-react';

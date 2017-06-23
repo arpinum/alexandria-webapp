@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Container} from 'reactstrap';
 import './App.css';
-import Navbar from './app/components/Navbar';
+import Navbar from './app/components/nav/Navbar';
 import AppRouter from './Router';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';

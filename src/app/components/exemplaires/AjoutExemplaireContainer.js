@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import AjoutExemplaire from './AjoutExemplaire';
-import {ajouteExemplaire as ajoute} from '../actions/ajoutExemplaireActions';
+import {ajouteExemplaire as ajoute} from '../../../alexandria/exemplaires/actions/ajoutExemplaireActions';
 
 const mapStateToProps = () => ({});
 

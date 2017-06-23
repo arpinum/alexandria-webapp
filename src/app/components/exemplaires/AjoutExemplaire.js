@@ -1,8 +1,8 @@
 import React, {PureComponent} from 'react';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
-import RechercheVolumes from '../../volumes/components/RechercheVolumesContainer';
-import ButtonRetour from '../../../app/components/ButtonRetour';
+import RechercheVolumes from '../volumes/RechercheVolumesContainer';
+import ButtonRetour from '../nav/ButtonRetour';
 import {Col, Row} from 'reactstrap';
 
 class AjoutExemplaire extends PureComponent {

@@ -3,8 +3,8 @@ import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
 import Livre from './Livre';
 import {Card, CardBlock, CardTitle, Col, Row} from 'reactstrap';
-import {ListeResumes} from '../api/types';
-import NavigationButton from '../../../app/components/NavigationButton';
+import {ListeResumes} from '../../../alexandria/livres/api/types';
+import NavigationButton from '../nav/NavigationButton';
 
 class Livres extends PureComponent {
 

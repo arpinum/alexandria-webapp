@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import RechercheVolumes from './RechercheVolumes';
-import {rechercheVolume as recherche, demarreRecherche as demarre} from '../actions/rechercheVolumesActions';
+import {rechercheVolume as recherche, demarreRecherche as demarre} from '../../../alexandria/volumes/actions/rechercheVolumesActions';
 
 const mapStateToProps = ({alexandria:{volumes:{tous:volumes}}}) => ({
   volumes

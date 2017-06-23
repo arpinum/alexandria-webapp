@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import {propTypes} from 'tcomb-react';
 import t from 'tcomb';
 import {Button, FormGroup, Input, Label, Table} from 'reactstrap';
-import {ListeVolumes} from '../api/types';
+import {ListeVolumes} from '../../../alexandria/volumes/api/types';
 
 class RechercheVolumes extends PureComponent {
 
