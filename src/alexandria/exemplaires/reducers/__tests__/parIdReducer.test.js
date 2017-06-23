@@ -1,5 +1,5 @@
 import {exemplairesTrouves} from '../../actions/rechercheExemplaireActions';
-import reducer from '../parIsbnReducer';
+import reducer from '../parIdReducer';
 
 describe('parIdReducer', () => {
 
@@ -14,6 +14,6 @@ describe('parIdReducer', () => {
 
     const newState = reducer({}, action);
 
-    expect(newState).toEqual({isbn: {id: 'test', isbn:'isbn'}});
+    expect(newState).toEqual({test: {id: 'test', isbn:'isbn'}});
   });
 });

@@ -6,7 +6,7 @@ export default (state = defaultState, {type, payload}) => {
   switch (type) {
     case EXEMPLAIRES_TROUVES: {
       return payload.reduce((acc, e) => {
-        acc[e.isbn] = e;
+        acc[e.id] = e;
         return acc;
       }, {});
     }

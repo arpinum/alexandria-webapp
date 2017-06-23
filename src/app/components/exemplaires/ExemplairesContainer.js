@@ -6,7 +6,9 @@ import _ from 'lodash';
 
 const mapStateToProps = (state, {match: {params: {isbn}}}) => {
   const livre = _.get(state, ['alexandria', 'livres', 'parId', isbn]);
-  return {livre};
+  const tousLesExemplaires = _.values(_.get(state, ['alexandria', 'exemplaires', 'parId']));
+  const exemplaires = _.filter(tousLesExemplaires, {isbn});
+  return {livre, exemplaires};
 };
 
 const mapDispatchToProps = (dispatch) => bindActionCreators({recherche}, dispatch);

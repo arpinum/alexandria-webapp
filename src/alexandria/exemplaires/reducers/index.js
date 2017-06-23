@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import parIsbn from './parIsbnReducer';
+import parId from './parIdReducer';
 
 export default combineReducers({
-  parIsbn
+  parId
 });

@@ -10,6 +10,7 @@ export const ResumeExemplaire = t.struct({
   id: t.String,
   idBibliotheque: t.String,
   isbn: t.String,
+  disponible: t.Boolean,
   lecteur: Lecteur
 }, 'RésuméÉxemplaire');
 
