@@ -5,7 +5,7 @@ export default function* ajoutExemplaireSaga(exemplairesApi) {
   yield takeEvery(AJOUTE_EXEMPLAIRE, ajoute);
 
   function* ajoute({payload: volume}) {
-    yield call(exemplairesApi.ajoute, volume.isbn);
-    yield put(exemplaireAjoute);
+    const {id} = yield call(exemplairesApi.ajoute, volume.isbn);
+    yield put(exemplaireAjoute(id, volume));
   }
 }

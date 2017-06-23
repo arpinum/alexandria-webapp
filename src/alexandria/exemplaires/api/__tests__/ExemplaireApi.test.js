@@ -6,7 +6,7 @@ describe('ExemplairesApi', () => {
 
   beforeEach(() => {
     axios = {
-      post: jest.fn(() => Promise.resolve({}))
+      post: jest.fn(() => Promise.resolve({data:{id:''}}))
     };
     api = new ExemplairesApi(axios);
   });
@@ -23,8 +23,7 @@ describe('ExemplairesApi', () => {
 
     it('retourne les données', (done) => {
       const exemplaire = {
-        idBibliotheque: 'id',
-        isbn: 'isbn'
+        id: 'id'
       };
       axios.post.mockImplementation(() => Promise.resolve({data: exemplaire}));
 
@@ -35,6 +34,5 @@ describe('ExemplairesApi', () => {
         done();
       });
     });
-    ;
   });
 });

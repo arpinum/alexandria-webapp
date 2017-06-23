@@ -1,5 +1,6 @@
 import reducer from '../parIdReducer';
 import {livresCharges} from '../../actions/chargementActions';
+import {exemplaireAjoute} from '../../../exemplaires/actions/ajoutExemplaireActions';
 
 describe('Livres parId reducer', () => {
 
@@ -24,6 +25,30 @@ describe('Livres parId reducer', () => {
         titre: 'titre',
         nombre: 8,
       },
+    });
+  });
+
+  it('ajoute le livre après ajout exemplaire', () => {
+    const newState = reducer({}, exemplaireAjoute('id', {isbn: 'isbn', titre: 'test'}));
+
+    expect(newState).toEqual({
+      isbn: {
+        isbn: 'isbn',
+        titre: 'test',
+        nombre: 1
+      }
+    });
+  });
+
+  it('incrémente le nombre de disponibles si existant', () => {
+    const newState = reducer({isbn: {nombre: 1}}, exemplaireAjoute('id', {isbn: 'isbn', titre: 'test'}));
+
+    expect(newState).toEqual({
+      isbn: {
+        isbn: 'isbn',
+        titre: 'test',
+        nombre: 2
+      }
     });
   });
 });

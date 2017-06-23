@@ -7,7 +7,7 @@ export const ajouteExemplaire = volume => ({
 
 export const EXEMPLAIRE_AJOUTE = 'EXEMPLAIRE_AJOUTE';
 
-export const exemplaireAjoute = exemplaire => ({
+export const exemplaireAjoute = (id, volume) => ({
   type: EXEMPLAIRE_AJOUTE,
-  payload: exemplaire
+  payload: {id, volume}
 });
