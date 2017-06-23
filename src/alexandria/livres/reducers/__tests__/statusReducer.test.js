@@ -1,4 +1,4 @@
-import {CHARGE_LIVRES, LIVRES_CHARGES} from '../../actions/chargementActions';
+import {DEMARRE_CHARGEMENT_LIVRES, LIVRES_CHARGES} from '../../actions/chargementActions';
 
 import reducer from '../statusReducer';
 
@@ -11,7 +11,7 @@ describe('Livres statusReducer', () => {
   });
 
   it('change le status au chargement', () => {
-    const newState = reducer('', {type: CHARGE_LIVRES});
+    const newState = reducer('', {type: DEMARRE_CHARGEMENT_LIVRES});
 
     expect(newState).toEqual('loading');
   });
@@ -19,6 +19,6 @@ describe('Livres statusReducer', () => {
   it('change le status à la fin du chargement', () => {
     const newState = reducer('', {type: LIVRES_CHARGES});
 
-    expect(newState).toEqual('hiddle');
+    expect(newState).toEqual('loaded');
   });
 });

@@ -14,7 +14,7 @@ const buildStore = (history) => {
 
   const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
   const store = createStore(rootReducer, composeEnhancers(
-    persistState(),
+    persistState('app'),
     applyMiddleware(sagaMiddleware)));
   sagaMiddleware.run(appSaga, history);
   return store;

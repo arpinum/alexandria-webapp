@@ -1,13 +1,13 @@
-import {CHARGE_LIVRES, LIVRES_CHARGES} from '../actions/chargementActions';
+import {DEMARRE_CHARGEMENT_LIVRES, LIVRES_CHARGES} from '../actions/chargementActions';
 
 const defaultState = 'hiddle';
 
 export default (state = defaultState, {type}) => {
   switch (type) {
-    case CHARGE_LIVRES:
+    case DEMARRE_CHARGEMENT_LIVRES:
       return 'loading';
     case LIVRES_CHARGES:
-      return 'hiddle';
+      return 'loaded';
     default:
       return state;
   }
