@@ -15,7 +15,7 @@ class Livres extends PureComponent {
   render() {
     const lignes = this.props.livres.map((l) =>
       <Col md="4" key={l.isbn}>
-        <Livre livre={l}/>
+        <Livre livre={l} avecLien/>
       </Col>,
     );
     return (
