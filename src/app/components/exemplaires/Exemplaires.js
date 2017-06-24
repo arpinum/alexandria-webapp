@@ -4,8 +4,9 @@ import {propTypes} from 'tcomb-react';
 import {ResumeLivre} from '../../../alexandria/livres/api/types';
 import {ListeResumeExemplaire} from '../../../alexandria/exemplaires/api/types';
 import ButtonRetour from '../nav/ButtonRetour';
-import {Col, ListGroup, ListGroupItem, Row} from 'reactstrap';
+import {Col, ListGroup, Row} from 'reactstrap';
 import Livre from '../livres/Livre';
+import Exemplaire from './Exemplaire';
 
 class Exemplaires extends PureComponent {
 
@@ -16,9 +17,8 @@ class Exemplaires extends PureComponent {
   render() {
     const livre = this.props.livre;
     const exemplaires = this.props.exemplaires.map(e =>
-      <ListGroupItem key={e.id} color={e.disponible ? 'success' : 'danger'}>
-        {`${e.lecteur.prenom} ${e.lecteur.nom}`}
-      </ListGroupItem>);
+      <Exemplaire key={e.id} exemplaire={e} surSortiDemande={() => this.props.sort(e)}/>,
+    );
     return (<div>
       <Row>
         <Col xs="2">
@@ -29,12 +29,12 @@ class Exemplaires extends PureComponent {
         </Col>
       </Row>
       <Row>
-        <Col sm="6">
+        <Col>
           <Livre livre={livre} avecDescription/>
         </Col>
-        <Col sm="6">
+        <Col>
           <ListGroup style={{
-            width: '100%'
+            width: '100%',
           }}>
             {exemplaires}
           </ListGroup>
@@ -47,9 +47,10 @@ class Exemplaires extends PureComponent {
 Exemplaires.propTypes = propTypes(t.struct({
   livre: ResumeLivre,
   recherche: t.Function,
-  exemplaires: ListeResumeExemplaire
+  sort: t.Function,
+  exemplaires: ListeResumeExemplaire,
 }), {
-  strict: false
+  strict: false,
 });
 
 export default Exemplaires;

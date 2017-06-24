@@ -2,6 +2,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Exemplaires from './Exemplaires';
 import {rechercheExemplaires as recherche} from '../../../alexandria/exemplaires/actions/rechercheExemplaireActions';
+import {sortExemplaire as sort} from '../../../alexandria/emprunts/actions/sortiExemplairesActions';
 import _ from 'lodash';
 
 const mapStateToProps = (state, {match: {params: {isbn}}}) => {
@@ -11,6 +12,6 @@ const mapStateToProps = (state, {match: {params: {isbn}}}) => {
   return {livre, exemplaires};
 };
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({recherche}, dispatch);
+const mapDispatchToProps = (dispatch) => bindActionCreators({recherche, sort}, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(Exemplaires);

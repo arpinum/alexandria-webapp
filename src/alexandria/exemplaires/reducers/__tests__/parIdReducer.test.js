@@ -1,4 +1,5 @@
 import {exemplairesTrouves} from '../../actions/rechercheExemplaireActions';
+import {exemplaireSorti} from '../../../emprunts/actions/sortiExemplairesActions';
 import reducer from '../parIdReducer';
 
 describe('parIdReducer', () => {
@@ -10,10 +11,26 @@ describe('parIdReducer', () => {
   });
 
   it('ajoute les exemplaires', () => {
-    const action = exemplairesTrouves([{id: 'test', isbn:'isbn'}]);
+    const action = exemplairesTrouves([{id: 'test', isbn: 'isbn'}]);
 
     const newState = reducer({}, action);
 
-    expect(newState).toEqual({test: {id: 'test', isbn:'isbn'}});
+    expect(newState).toEqual({test: {id: 'test', isbn: 'isbn'}});
+  });
+
+  it('change la disponibilité sur sortie', () => {
+    const newState = reducer({
+      id: {
+        id: 'id',
+        disponible: true,
+      },
+    }, exemplaireSorti({id: 'id'}));
+
+    expect(newState).toEqual({
+      id: {
+        id: 'id',
+        disponible: false,
+      },
+    });
   });
 });
