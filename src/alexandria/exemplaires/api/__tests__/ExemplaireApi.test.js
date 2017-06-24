@@ -18,7 +18,7 @@ describe('ExemplairesApi', () => {
     it('demande à ajouter un exemplaire', () => {
       api.ajoute('isbn');
 
-      expect(axios.post).toHaveBeenCalledWith('/alexandria/ma/bibliotheque/exemplaires', {
+      expect(axios.post).toHaveBeenCalledWith('/alexandria/lecteur/exemplaires', {
         isbn: 'isbn'
       });
     });

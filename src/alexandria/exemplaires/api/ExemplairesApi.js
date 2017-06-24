@@ -7,7 +7,7 @@ const ExemplaireAjoute = t.struct({
 
 function ExemplairesApi(axios) {
 
-  const ajoute = isbn => axios.post('/alexandria/ma/bibliotheque/exemplaires', {isbn})
+  const ajoute = isbn => axios.post('/alexandria/lecteur/exemplaires', {isbn})
     .then(({data}) => ExemplaireAjoute(data));
 
   const liste = isbn => axios.get(`/alexandria/livres/${isbn}/exemplaires`)
