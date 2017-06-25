@@ -1,17 +1,18 @@
-import {call, put, takeEvery, select} from 'redux-saga/effects';
-import {CHARGE_LIVRES, livresCharges, demarreChargement} from '../actions/chargementActions';
+import {call, put, select, takeEvery} from 'redux-saga/effects';
+import {CHARGE_LIVRES, demarreChargement, livresCharges} from '../actions/chargementActions';
+
+export const selector = ({alexandria: {livres: {status}}}) => status;
+
+export function* charge(livresApi) {
+  const status = yield select(selector);
+  if (status === 'loaded') {
+    return;
+  }
+  yield put(demarreChargement());
+  const livres = yield call(livresApi.tous);
+  yield put(livresCharges(livres));
+}
 
 export default function* chargeLivres(livresApi) {
-
-  yield takeEvery(CHARGE_LIVRES, charge);
-
-  function* charge() {
-    const status = yield select(({alexandria:{livres:{status}}}) => status);
-    if(status === 'loaded') {
-      return;
-    }
-    yield put(demarreChargement());
-    const livres = yield call(livresApi.tous);
-    yield put(livresCharges(livres));
-  }
+  yield takeEvery(CHARGE_LIVRES, charge, livresApi);
 }
