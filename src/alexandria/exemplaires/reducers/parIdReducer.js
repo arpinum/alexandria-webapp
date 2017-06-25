@@ -1,5 +1,5 @@
 import {EXEMPLAIRES_TROUVES} from '../actions/rechercheExemplaireActions';
-import {EXEMPLAIRE_SORTI} from '../../emprunts/actions/sortiExemplairesActions';
+import {EXEMPLAIRE_SORTI, EXEMPLAIRE_RENDU} from '../../emprunts/actions/sortiExemplairesActions';
 
 const defaultState = {};
 
@@ -16,6 +16,14 @@ export default (state = defaultState, {type, payload}) => {
         ...state, [payload.id]: {
           ...state[payload.id],
           disponible: false,
+        },
+      };
+    }
+    case EXEMPLAIRE_RENDU: {
+      return {
+        ...state, [payload.id]: {
+          ...state[payload.id],
+          disponible: true,
         },
       };
     }

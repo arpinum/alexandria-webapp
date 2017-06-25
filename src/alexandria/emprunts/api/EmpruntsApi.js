@@ -5,8 +5,13 @@ function EmpruntsApi(axios) {
     idBibliotheque,
   }).then(({data}) => data);
 
+  const rend = ({id: idExemplaire, idBibliotheque}) =>
+    axios.delete(`/alexandria/lecteur/emprunts/${idBibliotheque}:${idExemplaire}`)
+      .then(({data}) => data);
+
   return {
     sort,
+    rend
   };
 }
 

@@ -7,6 +7,7 @@ describe('EmpruntsApi', () => {
   beforeEach(() => {
     axios = {
       post: jest.fn(() => Promise.resolve({data: {id: ''}})),
+      delete: jest.fn(() => Promise.resolve({}))
     };
     api = new EmpruntsApi(axios);
   });
@@ -39,5 +40,16 @@ describe('EmpruntsApi', () => {
       expect(data).toEqual(payload);
       done();
     });
+  });
+
+  it('demande de rendre un exemplaire', () => {
+    const exemplaire = {
+      id: 'id',
+      idBibliotheque: 'biblio'
+    };
+
+    api.rend(exemplaire);
+
+    expect(axios.delete).toHaveBeenCalledWith('/alexandria/lecteur/emprunts/biblio:id');
   });
 });

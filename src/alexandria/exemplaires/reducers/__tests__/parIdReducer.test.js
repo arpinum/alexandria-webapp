@@ -1,5 +1,5 @@
 import {exemplairesTrouves} from '../../actions/rechercheExemplaireActions';
-import {exemplaireSorti} from '../../../emprunts/actions/sortiExemplairesActions';
+import {exemplaireSorti, exemplaireRendu} from '../../../emprunts/actions/sortiExemplairesActions';
 import reducer from '../parIdReducer';
 
 describe('parIdReducer', () => {
@@ -30,6 +30,22 @@ describe('parIdReducer', () => {
       id: {
         id: 'id',
         disponible: false,
+      },
+    });
+  });
+
+  it('change la disponibilité sur rendu', () => {
+    const newState = reducer({
+      id: {
+        id: 'id',
+        disponible: false,
+      },
+    }, exemplaireRendu({id: 'id'}));
+
+    expect(newState).toEqual({
+      id: {
+        id: 'id',
+        disponible: true,
       },
     });
   });
