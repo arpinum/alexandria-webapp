@@ -1,5 +1,5 @@
-import mainSaga, {sort} from '../sortiExemplaireSaga';
-import {exemplaireSorti, SORT_EXEMPLAIRE} from '../../actions/sortiExemplairesActions';
+import mainSaga, {rend, sort} from '../sortiExemplaireSaga';
+import {exemplaireSorti, REND_EXEMPLAIRE, SORT_EXEMPLAIRE} from '../../actions/sortiExemplairesActions';
 import {call, put, takeEvery} from 'redux-saga/effects';
 
 describe('sortiExemplaireSaga', () => {
@@ -9,6 +9,7 @@ describe('sortiExemplaireSaga', () => {
   beforeEach(() => {
     api = {
       sort: jest.fn(() => ({})),
+      rend: () => ({})
     };
   });
 
@@ -18,6 +19,15 @@ describe('sortiExemplaireSaga', () => {
       const value = mainSaga(api).next().value;
 
       expect(value).toEqual(takeEvery(SORT_EXEMPLAIRE, sort, api));
+    });
+
+    it('lance rend', () => {
+      const saga = mainSaga(api);
+      saga.next();
+
+      const value = saga.next().value;
+
+      expect(value).toEqual(takeEvery(REND_EXEMPLAIRE, rend, api));
     });
   });
 
@@ -32,7 +42,7 @@ describe('sortiExemplaireSaga', () => {
     });
 
     it('dispatch sur réussite', () => {
-      const exemplaire = {id:'test'};
+      const exemplaire = {id: 'test'};
       const saga = sort(api, {payload: exemplaire});
       saga.next();
 
@@ -41,5 +51,15 @@ describe('sortiExemplaireSaga', () => {
       expect(value).toEqual(put(exemplaireSorti(exemplaire)));
     });
 
+  });
+
+  describe('rend saga', () => {
+    it('appelle l\'api', () => {
+      const exemplaire = {};
+
+      const value = rend(api, {payload: exemplaire}).next().value;
+
+      expect(value).toEqual(call(api.rend, exemplaire));
+    });
   });
 });

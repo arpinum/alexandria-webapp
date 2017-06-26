@@ -17,7 +17,12 @@ class Exemplaires extends PureComponent {
   render() {
     const livre = this.props.livre;
     const exemplaires = this.props.exemplaires.map(e =>
-      <Exemplaire key={e.id} exemplaire={e} surSortiDemande={() => this.props.sort(e)}/>,
+      <Exemplaire
+        key={e.id}
+        exemplaire={e}
+        surSortiDemande={() => this.props.sort(e)}
+        surRenduDemande={() => this.props.rend(e)}
+      />,
     );
     return (<div>
       <Row>
@@ -48,6 +53,7 @@ Exemplaires.propTypes = propTypes(t.struct({
   livre: ResumeLivre,
   recherche: t.Function,
   sort: t.Function,
+  rend: t.Function,
   exemplaires: ListeResumeExemplaire,
 }), {
   strict: false,

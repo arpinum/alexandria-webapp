@@ -4,12 +4,12 @@ import {ResumeExemplaire} from '../../../alexandria/exemplaires/api/types';
 import t from 'tcomb';
 import {propTypes} from 'tcomb-react';
 
-const Exemplaire = ({exemplaire: e, surSortiDemande: sort}) => (
+const Exemplaire = ({exemplaire: e, surSortiDemande: sort, surRenduDemande:rend}) => (
   <ListGroupItem key={e.id} color={e.disponible ? 'success' : 'danger'}>
     <Row>
       <Col>
         {e.disponible ? <Button block color="primary" className="float-right" onClick={() => sort(e)}>Emprunter</Button>
-          : <Button block className="float-right" color="primary">Rendre</Button>}
+          : <Button block className="float-right" color="primary" onClick={() => rend(e)}>Rendre</Button>}
       </Col>
       <Col>{`${e.lecteur.prenom} ${e.lecteur.nom}`}</Col>
     </Row>
@@ -18,6 +18,7 @@ const Exemplaire = ({exemplaire: e, surSortiDemande: sort}) => (
 Exemplaire.propTypes = propTypes(t.struct({
   exemplaire: ResumeExemplaire,
   surSortiDemande: t.Function,
+  surRenduDemande: t.Function,
 }));
 
 export default Exemplaire;
